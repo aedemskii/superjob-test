@@ -2,25 +2,14 @@
     position: relative;
     display: inline-block;
     padding: 12px 25px;
+    $w_h: 18px;
+    @import "./clickable_image";
+    @include clickable-image("checkbox", $w_h);
     .checkbox {
-        $w_h: 18px;
         position: relative;
         display: inline-block;
-        cursor: pointer;
-        width: $w_h;
-        height: $w_h;
         margin-right: 10px;
         vertical-align: bottom;
-        img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: $w_h;
-            height: $w_h;
-            background-size: $w_h $w_h;
-            background-repeat: no-repeat;
-            background-position: 0 0;
-        }
         &.off {
             .off-normal {display: block};
             .off-hovered, .on-normal {display: none};
@@ -34,5 +23,4 @@
             .off-hovered, .off-normal {display: none};
         }
     }
-
 }

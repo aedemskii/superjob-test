@@ -16,30 +16,36 @@ class ProjectUI extends Component {
     }
 
     render() {
-        function doneOrButton(projectIsActive) {
-            if (projectIsActive) {
-                 return (<AppButton text={"ДОБАВИТЬ ВАКАНСИЮ"} className={"color-green"} />);
-            } else {
-                 return (
-                    <div className="done">
-                        <img src={done} />
-                        <span>Проект закрыт, сотрудники наняты</span>
-                    </div>
-                );
-            }
+        let doneOrAddButton, activateDisactivate;
+        if (this.state.active) {
+             doneOrAddButton = (<AppButton text={"ДОБАВИТЬ ВАКАНСИЮ"} className={"color-green"} />);
+             activateDisactivate = (
+                 <AppButton text={"ЗАКРЫТЬ ПРОЕКТ"} />
+             );
+        } else {
+             doneOrAddButton = (
+                <div className="done">
+                    <img src={done} />
+                    <span>Проект закрыт, сотрудники наняты</span>
+                </div>
+            );
+            activateDisactivate = (
+                <AppButton text={"ОТКРЫТЬ ПРОЕКТ"} className={"color-green"} />
+            );
         }
+
         return(
             <div className="project-ui">
                 <div className="block">
                     <div className="vacancies-number">
                         <span>{this.state.info}</span>
                     </div>
-                    {doneOrButton(this.state.active)}
+                    {doneOrAddButton}
 
                 </div>
                 <div className="block">
-                    <AppButton text={"ЗАКРЫТЬ ПРОЕКТ"} className={""} />
-                    <AppButton text={"УДАЛИТЬ"} className={""} />
+                    {activateDisactivate}
+                    <AppButton text={"УДАЛИТЬ"} />
                 </div>
             </div>
         );

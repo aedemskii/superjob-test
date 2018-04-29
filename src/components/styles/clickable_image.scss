@@ -1,0 +1,17 @@
+@mixin clickable-image($className: "clickable-image", $w_h: 10px) {
+    .#{$className} {
+        cursor: pointer;
+        width: $w_h;
+        height: $w_h;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $w_h;
+            height: $w_h;
+            background-size: $w_h $w_h;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }        
+    }
+}

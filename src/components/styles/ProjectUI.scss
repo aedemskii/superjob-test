@@ -1,3 +1,5 @@
+@import "./after_mixin.scss";
+
 .project-ui {
     margin-top: 5px;
     .block {
@@ -21,7 +23,9 @@
                 margin-right: 10px;
             }
         }
-
+        .app-button {
+            margin: 10px 14px;
+        }
         &:last-of-type {
             float: right;
             text-align: right;
@@ -32,9 +36,5 @@
             }
         }
     }
-    &::after {
-        clear: both;
-        content: "";
-        display: table;
-    }
+    @include after();
 }

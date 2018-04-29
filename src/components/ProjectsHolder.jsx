@@ -8,16 +8,33 @@ class ProjectsHolder extends Component {
                 name: "SuperJob Frontend",
                 vacanciesDatas: [
                     {
-                        name: "Frontend Developer",
+                        name: "Frontend Middle Developer",
                         active: true
                     },
                     {
-                        name: "Backend Developer",
+                        name: "Frontend Junior Developer",
                         active: false
                     }
                 ],
                 active: true,
                 opened: true
+            },
+            {
+                name: "SuperJob Backend",
+                vacanciesDatas: [
+                    {
+                        name: "Backend Senior Developer",
+                        active: true
+                    }
+                ],
+                active: true,
+                opened: true
+            },
+            {
+                name: "Machine learning",
+                vacanciesDatas: [],
+                active: false,
+                opened: false
             }
         ];
         let projects = [],

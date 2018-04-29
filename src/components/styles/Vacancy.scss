@@ -1,3 +1,5 @@
+@import "./after_mixin.scss";
+
 .vacancy {
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     padding: 10px 0;
@@ -7,42 +9,61 @@
         span {
             max-width: 700px;
         }
+        &.grey {
+            span {
+                color: rgba(0, 0, 0, 0.57);
+            }
+        }
     }
     .vacancy-ui {
         .block {
             float: left;
             text-align: left;
             font-size: 13px;
-            img {
-                background-repeat: no-repeat;
-                background-position: 0 0;
+            .img-holder {
+                position:relative;
+                display: inline-block;
                 $w_h: 16px;
-                margin: 12px 15px 0 0;
-                &.img-done {
-                    width: $w_h;
-                    height: 12px;
-                    background-size: $w_h 12px;
+                width: $w_h;
+                height: $w_h;
+                margin-right: 15px;
+                vertical-align: middle;
+                img {
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    &.img-done {
+                        width: $w_h;
+                        height: 12px;
+                        background-size: $w_h 12px;
+                        margin: 0 2px;
+                    }
+                    &.img-search {
+                        width: $w_h;
+                        height: $w_h;
+                        background-size: $w_h $w_h;
+                    }
                 }
-                &.img-search {
-                    width: $w_h;
-                    height: $w_h;
-                    background-size: $w_h $w_h;
-                }
+            }
+            .vacancy-status {
+                vertical-align: middle;
+            }
+            .app-button {
+                margin: 10px 14px;
+            }
+            &:first-of-type {
+                margin-top: 9px;
             }
             &:last-of-type {
                 float: right;
                 text-align: right;
                 .app-button {
+                    vertical-align: middle;
                     &:last-of-type {
                         margin-right: 0;
                     }
                 }
             }
         }
-        &::after {
-            clear: both;
-            content: "";
-            display: table;
-        }
+        @include after();
     }
 }

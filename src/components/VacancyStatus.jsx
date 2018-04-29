@@ -10,24 +10,22 @@ class VacancyStatus extends Component {
         }
     }
     render() {
-        let vacancyStatus;
+        let vacancyStatus, path, name;
         if (this.state.active) {
             vacancyStatus = "Вакансия открыта, идет подбор кандидатов";
-        } else {
-            vacancyStatus = "Вакансия закрыта, сотрудник нанят";
-        }
-        let path, name;
-        if (this.state.active) {
             path = search
             name = "search"
         } else {
+            vacancyStatus = "Вакансия закрыта, сотрудник нанят";
             path = done
             name = "done"
         }
         return (
             <div className="vacancy-status">
-                <img src={path} className={"img-" + name}/>
-                <span>{vacancyStatus}</span>
+                <div className="img-holder">
+                    <img src={path} className={"img-" + name}/>
+                </div>
+                <span className="vacancy-status">{vacancyStatus}</span>
             </div>
         );
     }

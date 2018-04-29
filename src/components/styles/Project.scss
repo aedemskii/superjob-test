@@ -1,10 +1,10 @@
 .project {
     position: relative;
-    max-height: 98px;
+    max-height: 72px;
     padding: 12px 24px;
     border-radius: 3px;
     overflow: hidden;
-    margin: 8px 0;
+    margin-top: 8px;
     background-color: #ffffff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     transition: 300ms;
@@ -12,11 +12,15 @@
     -moz-transition: 300ms;
     -ms-transition: 300ms;
     -o-transition: 300ms;
-    &:first-of-type, &:last-of-type {
-        margin: 0;
+    &:first-of-type {
+        margin-top: 0 !important;
+    }
+    &:last-of-type {
+        margin-bottom: 0 !important;
     }
     &.opened {
         max-height: none;
+        margin: 16px 0 16px 0;
         box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     }
 

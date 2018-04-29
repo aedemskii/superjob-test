@@ -12,7 +12,7 @@ class Vacancy extends Component {
     render() {
         return (
             <div className="vacancy">
-                <div className="vacancy-name">
+                <div className={"vacancy-name" + (this.state.active ? "" : " grey")}>
                     <span>{this.state.name}</span>
                 </div>
                 <VacancyUI active={this.state.active} />

@@ -10,14 +10,21 @@ class VacancyUI extends Component {
         }
     }
     render() {
+        let buttonData = {};
+        if (this.state.active) {
+            buttonData.text = "ЗАКРЫТЬ ВАКАНСИЮ";
+        } else {
+            buttonData.text = "ОТКРЫТЬ ВАКАНСИЮ";
+            buttonData.className = "color-green";
+        }
         return(
             <div className="vacancy-ui">
                 <div className="block">
-                    <VacancyStatus opened={this.state.active}/>
+                    <VacancyStatus active={this.state.active}/>
                 </div>
                 <div className="block">
-                    <AppButton text={"ЗАКРЫТЬ ВАКАНСИЮ"} className={""} />
-                    <AppButton text={"УДАЛИТЬ"} className={""} />
+                    <AppButton text={buttonData.text} className={buttonData.className}/>
+                    <AppButton text={"УДАЛИТЬ"} />
                 </div>
             </div>
         );

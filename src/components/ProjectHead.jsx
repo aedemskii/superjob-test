@@ -14,7 +14,7 @@ class ProjectHead extends Component {
     render() {
         return (
             <div className="project-head">
-                <div className={"project-name" + (this.state.opened ? "" : " grey")}>
+                <div className={"project-name" + (this.state.active ? "" : " grey")}>
                     <span>{this.state.name}</span>
                 </div>
                 <ProjectUI
