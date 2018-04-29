@@ -1,9 +1,10 @@
 .project {
     position: relative;
     max-height: 98px;
-    margin: 8px 0;
+    padding: 12px 24px;
     border-radius: 3px;
     overflow: hidden;
+    margin: 8px 0;
     background-color: #ffffff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.12);
     transition: 300ms;
@@ -20,7 +21,7 @@
     }
 
     .project-head {
-        padding: 12px 24px;
+        margin-bottom: 10px;
         .project-name {
             height: 32px;
             max-width: 600px;
@@ -28,9 +29,17 @@
                 font-size: 23px;
                 line-height: 1.39;
             }
+            &.grey {
+                span {
+                    color: rgba(0, 0, 0, 0.57);
+                }
+            }
         }
         @import 'ProjectUI';
     }
 
+    .project-vacancies-holder {
+        @import 'Vacancy';
+    }
 
 }

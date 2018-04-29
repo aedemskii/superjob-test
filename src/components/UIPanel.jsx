@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SearchForm from './SearchForm';
-import AppCheckbox from './AppCheckbox';
 import AppButton from './AppButton';
 
 class UIPanel extends Component {

@@ -25,6 +25,11 @@
         &:last-of-type {
             float: right;
             text-align: right;
+            .app-button {
+                &:last-of-type {
+                    margin-right: 0;
+                }
+            }
         }
     }
     &::after {

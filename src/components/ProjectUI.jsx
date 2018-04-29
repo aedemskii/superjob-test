@@ -18,7 +18,7 @@ class ProjectUI extends Component {
     render() {
         function doneOrButton(projectIsActive) {
             if (projectIsActive) {
-                 return (<AppButton text={"ДОБАВИТЬ ВАКАНСИЮ"} className={""} />);
+                 return (<AppButton text={"ДОБАВИТЬ ВАКАНСИЮ"} className={"color-green"} />);
             } else {
                  return (
                     <div className="done">
@@ -30,14 +30,14 @@ class ProjectUI extends Component {
         }
         return(
             <div className="project-ui">
-                <div className="block left">
+                <div className="block">
                     <div className="vacancies-number">
                         <span>{this.state.info}</span>
                     </div>
                     {doneOrButton(this.state.active)}
 
                 </div>
-                <div className="block right">
+                <div className="block">
                     <AppButton text={"ЗАКРЫТЬ ПРОЕКТ"} className={""} />
                     <AppButton text={"УДАЛИТЬ"} className={""} />
                 </div>

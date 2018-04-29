@@ -10,19 +10,19 @@ class Project extends Component {
             name: props.name || "Безымянный проект",
             opened: props.opened || false,
             active: props.active || false,
-            vacancies: props.vacancies || []
+            vacanciesDatas: props.vacanciesDatas || []
         };
     }
     render() {
         return (
-            <div className="project">
+            <div className={"project" + (this.state.opened ? " opened" : "")}>
                 <ProjectHead
                     name={this.state.name}
                     opened={this.state.opened}
                     active={this.state.active}
-                    vacanciesNumber={this.state.vacancies.length}
+                    vacanciesNumber={this.state.vacanciesDatas.length}
                 />
-                <ProjectVacanciesHolder vacancies={this.state.vacancies} />
+                <ProjectVacanciesHolder vacanciesDatas={this.state.vacanciesDatas} />
             </div>
         );
     }
