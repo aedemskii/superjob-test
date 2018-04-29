@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import searchSVG from './imgs/search.svg';
+import AppCheckbox from './AppCheckbox';
+import TextInput from './TextInput';
 
 class SearchForm extends Component {
     render() {
         return (
-            <div>
-                <img src={searchSVG} className = "" />
+            <div className="search-form">
+                <TextInput placeholder="Поиск по вакансиям" />
+                <AppCheckbox />
             </div>
         );
     }

@@ -1,0 +1,6 @@
+.search-form {
+    display: inline-block;
+    *{vertical-align: top}
+    @import "./TextInput";
+    @import "./AppCheckbox";
+}

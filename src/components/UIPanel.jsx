@@ -3,20 +3,19 @@ import SearchForm from './SearchForm';
 import AppCheckbox from './AppCheckbox';
 import AppButton from './AppButton';
 
-class ButtonsHolder extends Component {
+class UIPanel extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {};
     }
     render() {
         return (
-            <div className="buttons-holder">
+            <div className="ui-panel">
                 <SearchForm />
-                <AppCheckbox />
-                <AppButton />
+                <AppButton text={"ДОБАВИТЬ ПРОЕКТ"} className={"green"}/>
             </div>
         );
     }
 }
 
-export default ButtonsHolder;
+export default UIPanel;

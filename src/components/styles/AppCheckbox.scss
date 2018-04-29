@@ -1,0 +1,38 @@
+.add-checkbox {
+    position: relative;
+    display: inline-block;
+    padding: 12px 25px;
+    .checkbox {
+        $w_h: 18px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        width: $w_h;
+        height: $w_h;
+        margin-right: 10px;
+        vertical-align: bottom;
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $w_h;
+            height: $w_h;
+            background-size: $w_h $w_h;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+        &.off {
+            .off-normal {display: block};
+            .off-hovered, .on-normal {display: none};
+            &:hover {
+                .off-hovered {display: block};
+                .off-normal, .on-normal {display: none};
+            }
+        }
+        &.on {
+            .on-normal {display: block};
+            .off-hovered, .off-normal {display: none};
+        }
+    }
+
+}

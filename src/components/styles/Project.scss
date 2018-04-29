@@ -1,0 +1,36 @@
+.project {
+    position: relative;
+    max-height: 98px;
+    margin: 8px 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+    transition: 300ms;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -ms-transition: 300ms;
+    -o-transition: 300ms;
+    &:first-of-type, &:last-of-type {
+        margin: 0;
+    }
+    &.opened {
+        max-height: none;
+        box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    }
+
+    .project-head {
+        padding: 12px 24px;
+        .project-name {
+            height: 32px;
+            max-width: 600px;
+            span {
+                font-size: 23px;
+                line-height: 1.39;
+            }
+        }
+        @import 'ProjectUI';
+    }
+
+
+}

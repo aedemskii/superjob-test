@@ -1,7 +1,21 @@
-import './styles/AppCheckbox.css'
+import React, { Component } from 'react';
+import offNormal from './imgs/off-normal.svg';
+import offHovered from './imgs/off-hovered.svg';
+import onNormal from './imgs/on-normal.svg';
+class AppCheckbox extends Component {
 
-function AppCheckbox({checked}) {
-    return true;
+    render() {
+        return (
+            <div className="add-checkbox">
+                <div className="checkbox off">
+                    <img src={onNormal} className="on-normal" />
+                    <img src={offHovered} className="off-hovered" />
+                    <img src={offNormal} className="off-normal" />
+                </div>
+                <span>Только открытые</span>
+            </div>
+        );
+    }
 }
 
 export default AppCheckbox;

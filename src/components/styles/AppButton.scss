@@ -1,0 +1,49 @@
+.app-button {
+    position: relative;
+    display: inline-block;
+    margin: 10px 14px;
+    padding: 0 2px;
+    font-size: 16px;
+    font-family: Roboto, HelveticaNeue-Light, sans-serif;
+    letter-spacing: 0.5px;
+    text-align: center;
+    cursor: pointer;
+    .textholder {
+        color: rgba(0, 0, 0, 0.37);
+        &:hover {
+            color: rgba(0, 0, 0, 0.47);
+        }
+        &:active {
+            color: rgba(0, 0, 0, 0.87);
+        }
+    }
+    &.color-green {
+        .textholder {
+            color: #00aa87;;
+            &:hover {
+                color: #00816c;
+            }
+            &:active {
+                color: #006554;
+            }
+        }
+    }
+    &.green {
+        background-color: #00aa87;
+        padding: 10px 16px;
+        border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.12);
+        margin: 0;        
+        .textholder {
+            padding: 0 20px;
+            color: #ffffff;
+        }
+        &:hover {
+            background-color: #1fb495;
+        }
+        &:active {
+            background-color: #00826c;
+        }
+    }
+
+}

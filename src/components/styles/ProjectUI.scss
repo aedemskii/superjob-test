@@ -1,0 +1,35 @@
+.project-ui {
+    margin-top: 5px;
+    .block {
+        float: left;
+        text-align: left;
+        .vacancies-number {
+            position: relative;
+            display: inline-block;
+        }
+        .done {
+            position: relative;
+            display: inline-block;
+            padding: 9px 0;
+            margin-left: 25px;
+            img {
+                width: 16px;
+                height: 12px;
+                background-size: 16px 12px;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                margin-right: 10px;
+            }
+        }
+
+        &:last-of-type {
+            float: right;
+            text-align: right;
+        }
+    }
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}

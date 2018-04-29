@@ -1,13 +1,11 @@
 import React from 'react';
-import './styles/AppButton.css'
+import './styles/AppButton.scss'
 
 function AppButton({onClick, className, text}) {
     return (
-        <span className={"app-button " + className} onClick={onClick}>
-            <span className="placeHolder">
-                <span className="textHolder">{text}</span>
-            </span>
-        </span>
+        <div className={"app-button " + className} onClick={onClick}>
+            <span className="textholder">{text}</span>
+        </div>
     );
 }
 
