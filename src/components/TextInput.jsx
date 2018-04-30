@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
 
 class TextInput extends Component {
-    onClickHandle(e) {
+    inputOnMouseOver(e) {
         let input = e.currentTarget;
-        input.classList.remove("wrong");
+        input.parentElement.classList.remove("wrong");
     }
+
     render() {
+        let mistakeText = (<span>mistake</span>);
         return (
             <div className="text-input-holder">
                 <input
                     id={this.props.id}
                     type="text"
                     placeholder={this.props.placeholder}
-                    onClick={this.onClickHandle}
+                    onMouseOver={this.inputOnClick}
+                    onChange={this.props.onChange}
+                    data={mistakeText}
                     />
+                <div className="mistake">
+                    {mistakeText}
+                </div>
             </div>
         );
     }

@@ -6,14 +6,14 @@ import TextInput from './TextInput';
 import AppButton from './AppButton';
 
 class Adder extends Component {
-    inputId = "new_object_name"
+    inputId = "new_object_name";
     clickHandle = () => {
         let input = document.getElementById(this.inputId);
         let name = input.value;
         if (name.replace(/ /g, "").length) {
             this.props.createObject(name, this.props.onAdd);
         } else {
-            input.classList.add("wrong");
+            input.parentElement.classList.add("wrong");
         }
 
     }

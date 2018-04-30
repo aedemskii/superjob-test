@@ -10,7 +10,7 @@ class ProjectVacanciesHolder extends Component {
             let vacancy = vacancies[idx];
             vacanciesBodies.push(
                 <Vacancy
-                    key={"v_" + idx}
+                    key={"v_" + vacancy.name + " " +  idx}
                     vacancyIdx={idx}
                     projectIdx={this.props.projectIdx}
                     name={vacancy.name}

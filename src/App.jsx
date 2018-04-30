@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import _projects from './components/defaults.js';
+import defaultProjects from './components/defaultProjects.js';
 import UIPanel from './components/UIPanel';
 import ProjectsHolder from './components/ProjectsHolder';
 import Adder from './components/Adder';
@@ -9,10 +9,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         let projects;
-        try { projects = JSON.parse(window.localStorage.getItem('__notes_storage')) }
-        catch (err) { console.warn("window.localStorage.getItem() is failed") }
+        try {
+            projects = JSON.parse(window.localStorage.getItem('__app_state'))
+        }
+        catch (err) {
+            console.warn("window.localStorage.getItem() is failed");
+        }
         this.state = {
-            projects: _projects(),
+            projects: projects || defaultProjects(),
             onAdd: null,
             searchFilter: {
                 activeOnly: false,
@@ -23,12 +27,12 @@ class App extends Component {
     }
 
     save = () => {
-        // try {
-        //     window.localStorage.setItem('__app_state', JSON.stringify(this.state.projects));
-        // }
-        // catch (err) {
-        //     console.warn("save() is failed");
-        // }
+        try {
+            window.localStorage.setItem('__app_state', JSON.stringify(this.state.projects));
+        }
+        catch (err) {
+            console.warn("save() is failed");
+        }
     }
 
     switchToAddMode = (function(projectIdx = -1) {
@@ -75,8 +79,12 @@ class App extends Component {
         currentElem = projects[ projectIdx ];
 
         if (vacancyIdx + 1) {
+            let project = currentElem;
             currentElem = currentElem.vacancies[ vacancyIdx ];
             currentElem.isActive = !currentElem.isActive;
+            if (currentElem.isActive) {
+                project.isActive = true;
+            }
         }
         else if (currentElem.isActive) {
             currentElem.isActive = false;
@@ -101,14 +109,21 @@ class App extends Component {
         this.save();
     }).bind(this);
 
+    clearSearchFilter = (function() {
+        let newSearchFilter = {
+            name: "",
+            activeOnly: false
+        }
+        this.setState({ searchFilter: newSearchFilter });
+    }).bind(this);
+
     setSearchFilter = (function(stringFilter) {
         let newSearchFilter = Object.assign({}, this.state.searchFilter);
-        if (stringFilter) {
+        if (typeof(stringFilter) === "string") {
             newSearchFilter.name = stringFilter;
         } else {
             newSearchFilter.activeOnly = !newSearchFilter.activeOnly
         }
-
         this.setState({ searchFilter: newSearchFilter });
     }).bind(this);
 
@@ -125,6 +140,7 @@ class App extends Component {
                         />
                     <ProjectsHolder
                         projects={this.state.projects}
+                        searchFilter={this.state.searchFilter}
                         switchToAddMode={this.switchToAddMode}
                         toggleOpenProject={this.toggleOpenProject}
                         toggleActiveObject={this.toggleActiveObject}

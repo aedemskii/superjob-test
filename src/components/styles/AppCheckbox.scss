@@ -10,13 +10,11 @@
         display: inline-block;
         margin-right: 10px;
         vertical-align: bottom;
-        &.off {
-            .off-normal {display: block};
-            .off-hovered, .on-normal {display: none};
-            &:hover {
-                .off-hovered {display: block};
-                .off-normal, .on-normal {display: none};
-            }
+        .off-normal {display: block};
+        .off-hovered, .on-normal {display: none};
+        &:hover {
+            .off-hovered {display: block};
+            .off-normal, .on-normal {display: none};
         }
         &.on {
             .on-normal {display: block};

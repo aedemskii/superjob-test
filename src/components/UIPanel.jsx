@@ -3,15 +3,20 @@ import SearchForm from './SearchForm';
 import AppButton from './AppButton';
 
 class UIPanel extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
+
+    addProject = () => {
+        this.props.switchToAddMode();
     }
+
     render() {
         return (
             <div className="ui-panel">
-                <SearchForm />
-                <AppButton text={"ДОБАВИТЬ ПРОЕКТ"} className={"green"}/>
+                <SearchForm setSearchFilter={this.props.setSearchFilter} />
+                <AppButton
+                    text={"ДОБАВИТЬ ПРОЕКТ"}
+                    className={"green"}
+                    onClick={this.addProject}
+                    />
             </div>
         );
     }

@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import Project from './Project';
+import projectsFilter from './projectsFilter';
 
 class ProjectsHolder extends Component {
     render() {
-        let projects = this.props.projects;
+        let projects = JSON.parse(JSON.stringify(this.props.projects));
+
+        let filter = this.props.searchFilter;
+        if (filter.name.length || filter.activeOnly) {
+            projects = projectsFilter(projects, filter);
+        }
+
         let projectsBodies = [],
             len = projects.length;
-        for (let idx = 0; idx < len; idx ++) {
+        for ( let idx = 0; idx < len; idx++ ) {
             let project = projects[idx];
             projectsBodies.push(
                 <Project
-                    key={"p_" + idx}
+                    key={"p_" + project.name + " " + idx}
                     projectIdx={idx}
                     name={project.name}
                     isOpened={project.isOpened}
