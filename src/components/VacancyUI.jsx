@@ -3,15 +3,18 @@ import AppButton from "./AppButton";
 import VacancyStatus from "./VacancyStatus";
 
 class VacancyUI extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: props.active
-        }
+
+    deleteVacancy = () => {
+        this.props.deleteObject(this.props.projectIdx, this.props.vacancyIdx);
     }
+
+    toggleActiveVacancy = () => {
+        this.props.toggleActiveObject(this.props.projectIdx, this.props.vacancyIdx);
+    }
+
     render() {
         let buttonData = {};
-        if (this.state.active) {
+        if (this.props.isActive) {
             buttonData.text = "ЗАКРЫТЬ ВАКАНСИЮ";
         } else {
             buttonData.text = "ОТКРЫТЬ ВАКАНСИЮ";
@@ -20,11 +23,18 @@ class VacancyUI extends Component {
         return(
             <div className="vacancy-ui">
                 <div className="block">
-                    <VacancyStatus active={this.state.active}/>
+                    <VacancyStatus isActive={this.props.isActive}/>
                 </div>
                 <div className="block">
-                    <AppButton text={buttonData.text} className={buttonData.className}/>
-                    <AppButton text={"УДАЛИТЬ"} />
+                    <AppButton
+                        text={buttonData.text}
+                        className={buttonData.className}
+                        onClick={this.toggleActiveVacancy}
+                        />
+                    <AppButton
+                        text={"УДАЛИТЬ"}
+                        onClick={this.deleteVacancy}
+                        />
                 </div>
             </div>
         );

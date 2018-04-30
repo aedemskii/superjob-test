@@ -3,15 +3,9 @@ import done from "./imgs/done.svg";
 import search from "./imgs/search.svg";
 
 class VacancyStatus extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: props.active
-        }
-    }
     render() {
         let vacancyStatus, path, name;
-        if (this.state.active) {
+        if (this.props.isActive) {
             vacancyStatus = "Вакансия открыта, идет подбор кандидатов";
             path = search
             name = "search"
@@ -23,7 +17,7 @@ class VacancyStatus extends Component {
         return (
             <div className="vacancy-status">
                 <div className="img-holder">
-                    <img src={path} className={"img-" + name}/>
+                    <img src={path} alt="" className={"img-" + name}/>
                 </div>
                 <span className="vacancy-status">{vacancyStatus}</span>
             </div>

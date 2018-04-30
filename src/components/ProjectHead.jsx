@@ -2,25 +2,21 @@ import React, {Component} from 'react';
 import ProjectUI from './ProjectUI';
 
 class ProjectHead extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: props.name,
-            opened: props.opened,
-            active: props.active,
-            vacanciesNumber: props.vacanciesNumber
-        }
-    }
     render() {
         return (
             <div className="project-head">
-                <div className={"project-name" + (this.state.active ? "" : " grey")}>
-                    <span>{this.state.name}</span>
+                <div className={"project-name" + (this.props.isActive ? "" : " grey")}>
+                    <span>{this.props.name}</span>
                 </div>
                 <ProjectUI
-                    vacanciesNumber={this.state.vacanciesNumber}
-                    opened={this.state.opened}
-                    active={this.state.active}
+                    vacanciesNumber={this.props.vacanciesNumber}
+                    isOpened={this.props.isOpened}
+                    isActive={this.props.isActive}
+                    switchToAddMode={this.props.switchToAddMode}
+                    toggleOpenProject={this.props.toggleOpenProject}
+                    toggleActiveObject={this.props.toggleActiveObject}
+                    deleteObject={this.props.deleteObject}
+                    projectIdx={this.props.projectIdx}
                 />
             </div>
         );

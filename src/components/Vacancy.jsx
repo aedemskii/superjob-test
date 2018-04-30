@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import VacancyUI from "./VacancyUI";
 
 class Vacancy extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: props.name,
-            active: props.active
-        }
-    }
     render() {
         return (
             <div className="vacancy">
-                <div className={"vacancy-name" + (this.state.active ? "" : " grey")}>
-                    <span>{this.state.name}</span>
+                <div className={"vacancy-name" + (this.props.isActive ? "" : " grey")}>
+                    <span>{this.props.name}</span>
                 </div>
-                <VacancyUI active={this.state.active} />
+                <VacancyUI
+                    vacancyIdx={this.props.vacancyIdx}
+                    projectIdx={this.props.projectIdx}
+                    isActive={this.props.isActive}
+                    toggleActiveObject={this.props.toggleActiveObject}
+                    deleteObject={this.props.deleteObject}
+                    />
             </div>
         );
     }

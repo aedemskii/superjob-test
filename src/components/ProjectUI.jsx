@@ -5,47 +5,70 @@ import AppButton from "./AppButton";
 
 
 class ProjectUI extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            vacanciesNumber: props.vacanciesNumber,
-            info: oneFiewMany(props.vacanciesNumber, ["вакансия", "вакансии", "вакансий"]),
-            opened: props.opened,
-            active: props.active
-        }
+
+    deleteProject = () => {
+        this.props.deleteObject(this.props.projectIdx);
+    }
+
+    toggleActiveProject = () => {
+        this.props.toggleActiveObject(this.props.projectIdx);
+    }
+
+    addVacancy = () => {
+        this.props.switchToAddMode(this.props.projectIdx);
+    }
+
+    toggleOpenProject = () => {
+        this.props.toggleOpenProject(this.props.projectIdx);
     }
 
     render() {
         let doneOrAddButton, activateDisactivate;
-        if (this.state.active) {
-             doneOrAddButton = (<AppButton text={"ДОБАВИТЬ ВАКАНСИЮ"} className={"color-green"} />);
+        if (this.props.isActive) {
+             doneOrAddButton = (
+                 <AppButton
+                    text={"ДОБАВИТЬ ВАКАНСИЮ"}
+                    className={"color-green"}
+                    onClick={this.addVacancy}
+                    />
+             );
              activateDisactivate = (
-                 <AppButton text={"ЗАКРЫТЬ ПРОЕКТ"} />
+                 <AppButton
+                    text={"ЗАКРЫТЬ ПРОЕКТ"}
+                    onClick={this.toggleActiveProject}
+                    />
              );
         } else {
              doneOrAddButton = (
                 <div className="done">
-                    <img src={done} />
+                    <img alt="" src={done} />
                     <span>Проект закрыт, сотрудники наняты</span>
                 </div>
             );
             activateDisactivate = (
-                <AppButton text={"ОТКРЫТЬ ПРОЕКТ"} className={"color-green"} />
+                <AppButton
+                    text={"ОТКРЫТЬ ПРОЕКТ"}
+                    className={"color-green"}
+                    onClick={this.toggleActiveProject}
+                    />
             );
         }
-
+        let info = oneFiewMany(this.props.vacanciesNumber, ["вакансия", "вакансии", "вакансий"])
         return(
             <div className="project-ui">
                 <div className="block">
                     <div className="vacancies-number">
-                        <span>{this.state.info}</span>
+                        <span>{info}</span>
                     </div>
                     {doneOrAddButton}
 
                 </div>
                 <div className="block">
                     {activateDisactivate}
-                    <AppButton text={"УДАЛИТЬ"} />
+                    <AppButton
+                        text={"УДАЛИТЬ"}
+                        onClick={this.deleteProject}
+                        />
                 </div>
             </div>
         );

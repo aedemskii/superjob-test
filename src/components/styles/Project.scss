@@ -1,6 +1,5 @@
 .project {
     position: relative;
-    max-height: 72px;
     padding: 12px 24px;
     border-radius: 3px;
     overflow: hidden;
@@ -19,7 +18,6 @@
         margin-bottom: 0 !important;
     }
     &.opened {
-        max-height: none;
         margin: 16px 0 16px 0;
         box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.12);
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import _projects from './components/defaults.js';
 import UIPanel from './components/UIPanel';
 import ProjectsHolder from './components/ProjectsHolder';
 import Adder from './components/Adder';
@@ -7,11 +8,11 @@ import Adder from './components/Adder';
 class App extends Component {
     constructor(props) {
         super(props);
-        let projects = []
+        let projects;
         try { projects = JSON.parse(window.localStorage.getItem('__notes_storage')) }
         catch (err) { console.warn("window.localStorage.getItem() is failed") }
         this.state = {
-            projects: projects,
+            projects: _projects(),
             onAdd: null,
             searchFilter: {
                 activeOnly: false,
@@ -22,23 +23,23 @@ class App extends Component {
     }
 
     save = () => {
-        try {
-            window.localStorage.setItem('__app_state', JSON.stringify(this.state.projects));
-        }
-        catch (err) {
-            console.warn("save() is failed");
-        }
+        // try {
+        //     window.localStorage.setItem('__app_state', JSON.stringify(this.state.projects));
+        // }
+        // catch (err) {
+        //     console.warn("save() is failed");
+        // }
     }
 
-    switchToAddMode = (projectIdx) => {
-        this.setState({ onAdd: projectIdx || -1 });
-    }
+    switchToAddMode = (function(projectIdx = -1) {
+        this.setState({ onAdd: projectIdx });
+    }).bind(this);
 
-    quitFromAddMode = () => {
+    quitFromAddMode = (function() {
         this.setState({ onAdd: null });
-    }
+    }).bind(this);
 
-    createObject = (name, projectIdx = -1) => {
+    createObject = (function(name, projectIdx = -1) {
         let projects = this.state.projects.slice();
         if (projectIdx + 1) {
             projects[ projectIdx ].vacancies.push({
@@ -56,20 +57,20 @@ class App extends Component {
         this.setState({ projects: projects });
         this.save();
         this.quitFromAddMode();
-    }
+    }).bind(this);
 
-    deleteObject = (projectIdx, vacancyIdx = -1) => {
+    deleteObject = (function(projectIdx, vacancyIdx = -1) {
         let projects = this.state.projects.slice();
         if (vacancyIdx + 1) {
-            projects[ projectIdx ].splice(vacancyIdx, 1);
+            projects[ projectIdx ].vacancies.splice(vacancyIdx, 1);
         } else {
             projects.splice(projectIdx, 1)
         }
         this.setState({ projects: projects });
         this.save();
-    }
+    }).bind(this);
 
-    toggleActiveObject = (projectIdx, vacancyIdx = -1) => {
+    toggleActiveObject = (function(projectIdx, vacancyIdx = -1) {
         let currentElem, projects = this.state.projects.slice();
         currentElem = projects[ projectIdx ];
 
@@ -90,17 +91,17 @@ class App extends Component {
 
         this.setState({ projects: projects });
         this.save();
-    }
+    }).bind(this);
 
-    toggleOpenProject = (projectIdx) => {
+    toggleOpenProject = (function(projectIdx) {
         let projects = this.state.projects.slice();
         projects[ projectIdx ].isOpened = !projects[ projectIdx ].isOpened;
 
         this.setState({ projects: projects });
         this.save();
-    }
+    }).bind(this);
 
-    setSearchFilter = (stringFilter) => {
+    setSearchFilter = (function(stringFilter) {
         let newSearchFilter = Object.assign({}, this.state.searchFilter);
         if (stringFilter) {
             newSearchFilter.name = stringFilter;
@@ -109,11 +110,11 @@ class App extends Component {
         }
 
         this.setState({ searchFilter: newSearchFilter });
-    }
+    }).bind(this);
 
 
     render() {
-        // this.save();
+        this.save();
         return (
             <div className="app-body">
                 <div className="app-header"><span>Список проектов</span></div>
@@ -123,6 +124,7 @@ class App extends Component {
                         switchToAddMode={this.switchToAddMode}
                         />
                     <ProjectsHolder
+                        projects={this.state.projects}
                         switchToAddMode={this.switchToAddMode}
                         toggleOpenProject={this.toggleOpenProject}
                         toggleActiveObject={this.toggleActiveObject}

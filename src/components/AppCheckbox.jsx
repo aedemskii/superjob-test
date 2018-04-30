@@ -8,9 +8,9 @@ class AppCheckbox extends Component {
         return (
             <div className="add-checkbox">
                 <div className="checkbox off">
-                    <img src={onNormal} className="on-normal" />
-                    <img src={offHovered} className="off-hovered" />
-                    <img src={offNormal} className="off-normal" />
+                    <img src={onNormal}   alt="O" className="on-normal" />
+                    <img src={offHovered} alt="0" className="off-hovered" />
+                    <img src={offNormal}  alt="1" className="off-normal" />
                 </div>
                 <span>Только открытые</span>
             </div>

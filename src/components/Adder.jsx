@@ -8,8 +8,14 @@ import AppButton from './AppButton';
 class Adder extends Component {
     inputId = "new_object_name"
     clickHandle = () => {
-        let name = document.getElementById(this.inputId);
-        this.props.createObject(name, this.props.onAdd);
+        let input = document.getElementById(this.inputId);
+        let name = input.value;
+        if (name.replace(/ /g, "").length) {
+            this.props.createObject(name, this.props.onAdd);
+        } else {
+            input.classList.add("wrong");
+        }
+
     }
 
     render() {
@@ -17,11 +23,11 @@ class Adder extends Component {
 
         let head, inputPlaceholder;
         if (this.props.onAdd + 1) {
-            head = "Новый проект";
-            inputPlaceholder = "Название проекта";
-        } else {
             head = "Новая вакансия";
             inputPlaceholder = "Название вакансии";
+        } else {
+            head = "Новый проект";
+            inputPlaceholder = "Название проекта";
         }
 
         return (
@@ -30,14 +36,18 @@ class Adder extends Component {
                     <div className="head">
                         <span>{head}</span>
                         <div className="cancel" onClick={this.props.quitFromAddMode}>
-                            <img src={closeNormal} className="normal" />
-                            <img src={closeHovered} className="hovered" />
-                            <img src={closePressed} className="pressed" />
+                            <img src={closeNormal}  alt="x" className="normal" />
+                            <img src={closeHovered} alt="X" className="hovered" />
+                            <img src={closePressed} alt="X" className="pressed" />
                         </div>
                     </div>
                     <div className="create-form">
                         <TextInput id={this.inputId} placeholder={inputPlaceholder} />
-                        <AppButton text={"СОЗДАТЬ"} className={"green"}/>
+                        <AppButton
+                            text={"СОЗДАТЬ"}
+                            className={"green"}
+                            onClick={this.clickHandle}
+                            />
                     </div>
                 </div>
             </div>

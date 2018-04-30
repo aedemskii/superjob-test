@@ -27,5 +27,8 @@
         &:hover {
             border-color: rgba(0, 0, 0, 0.37);
         }
+        &.wrong {
+            border-color: #f05c5c;
+        }
     }
 }

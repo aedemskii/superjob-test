@@ -4,25 +4,31 @@ import ProjectHead from './ProjectHead';
 import ProjectVacanciesHolder from './ProjectVacanciesHolder';
 
 class Project extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            name: props.name || "Безымянный проект",
-            opened: props.opened || false,
-            active: props.active || false,
-            vacanciesDatas: props.vacanciesDatas || []
-        };
-    }
     render() {
+        let openedVacanciesNumber = (
+            this.props.vacancies.filter((vac) => {return vac.isActive})
+        ).length
         return (
-            <div className={"project" + (this.state.opened ? " opened" : "")}>
+            <div className={"project" + (this.props.isOpened ? " opened" : "")}>
                 <ProjectHead
-                    name={this.state.name}
-                    opened={this.state.opened}
-                    active={this.state.active}
-                    vacanciesNumber={this.state.vacanciesDatas.length}
+                    name={this.props.name}
+                    isOpened={this.props.isOpened}
+                    isActive={this.props.isActive}
+                    vacanciesNumber={openedVacanciesNumber}
+                    switchToAddMode={this.props.switchToAddMode}
+                    toggleOpenProject={this.props.toggleOpenProject}
+                    toggleActiveObject={this.props.toggleActiveObject}
+                    deleteObject={this.props.deleteObject}
+                    projectIdx={this.props.projectIdx}
                 />
-                <ProjectVacanciesHolder vacanciesDatas={this.state.vacanciesDatas} />
+                <ProjectVacanciesHolder
+                    vacancies={this.props.vacancies}
+                    toRender={this.props.isOpened}
+                    switchToAddMode={this.props.switchToAddMode}
+                    toggleActiveObject={this.props.toggleActiveObject}
+                    deleteObject={this.props.deleteObject}
+                    projectIdx={this.props.projectIdx}
+                    />
             </div>
         );
     }
