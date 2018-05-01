@@ -14,9 +14,9 @@ class AppCheckbox extends Component {
         return (
             <div className="add-checkbox">
                 <div className="checkbox" onMouseDown={this.checkboxOnClick}>
-                    <img src={onNormal}   alt="O" className="on-normal" />
-                    <img src={offHovered} alt="0" className="off-hovered" />
-                    <img src={offNormal}  alt="1" className="off-normal" />
+                    <img src={onNormal}   alt="" className="on-normal" />
+                    <img src={offHovered} alt="" className="off-hovered" />
+                    <img src={offNormal}  alt="" className="off-normal" />
                 </div>
                 <span>Только открытые</span>
             </div>

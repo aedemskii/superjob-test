@@ -14,7 +14,8 @@ class Project extends Component {
                     name={this.props.name}
                     isOpened={this.props.isOpened}
                     isActive={this.props.isActive}
-                    vacanciesNumber={openedVacanciesNumber}
+                    vacanciesNumber={this.props.vacancies.length}
+                    openedVacanciesNumber={openedVacanciesNumber}
                     switchToAddMode={this.props.switchToAddMode}
                     toggleOpenProject={this.props.toggleOpenProject}
                     toggleActiveObject={this.props.toggleActiveObject}

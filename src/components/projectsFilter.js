@@ -18,8 +18,10 @@ function projectsFilter(_projects, filter) {
             );
         }
     }
-    projects = projects.filter(
-        (project) => { return project.vacancies.length }
+    projects = projects.map(
+        (project) => {
+            return (project.vacancies.length ? project : null)
+        }
     );
 
     return projects;

@@ -1,0 +1,19 @@
+@import "./clickable_image";
+@include clickable-image("open-button", 10px, 6px);
+.open-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    .tr-normal { display: block; }
+    .tr-hovered { display: none; }
+    &:hover {
+        .tr-normal { display: none; }
+        .tr-hovered { display: block; }
+    }
+    &.opened {
+        img {
+            transform: rotate(180deg);
+        }
+    }
+}

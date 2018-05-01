@@ -18,10 +18,6 @@ class ProjectUI extends Component {
         this.props.switchToAddMode(this.props.projectIdx);
     }
 
-    toggleOpenProject = () => {
-        this.props.toggleOpenProject(this.props.projectIdx);
-    }
-
     render() {
         let doneOrAddButton, activateDisactivate;
         if (this.props.isActive) {
@@ -53,7 +49,7 @@ class ProjectUI extends Component {
                     />
             );
         }
-        let info = oneFiewMany(this.props.vacanciesNumber, ["вакансия", "вакансии", "вакансий"])
+        let info = oneFiewMany(this.props.openedVacanciesNumber, ["вакансия", "вакансии", "вакансий"])
         return(
             <div className="project-ui">
                 <div className="block">

@@ -101,7 +101,7 @@ class App extends Component {
         this.save();
     }).bind(this);
 
-    toggleOpenProject = (function(projectIdx) {
+    toggleOpenProject = (function(projectIdx) {        
         let projects = this.state.projects.slice();
         projects[ projectIdx ].isOpened = !projects[ projectIdx ].isOpened;
 

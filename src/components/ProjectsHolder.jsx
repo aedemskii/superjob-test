@@ -7,14 +7,17 @@ class ProjectsHolder extends Component {
         let projects = JSON.parse(JSON.stringify(this.props.projects));
 
         let filter = this.props.searchFilter;
+
         if (filter.name.length || filter.activeOnly) {
             projects = projectsFilter(projects, filter);
+            console.log(projects);
         }
 
         let projectsBodies = [],
             len = projects.length;
         for ( let idx = 0; idx < len; idx++ ) {
             let project = projects[idx];
+            if ( project === null ) continue;
             projectsBodies.push(
                 <Project
                     key={"p_" + project.name + " " + idx}

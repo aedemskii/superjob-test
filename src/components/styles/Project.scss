@@ -6,11 +6,6 @@
     margin-top: 8px;
     background-color: #ffffff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.12);
-    transition: 300ms;
-    -webkit-transition: 300ms;
-    -moz-transition: 300ms;
-    -ms-transition: 300ms;
-    -o-transition: 300ms;
     &:first-of-type {
         margin-top: 0 !important;
     }
@@ -23,6 +18,7 @@
     }
 
     .project-head {
+        position: relative;
         margin-bottom: 10px;
         .project-name {
             height: 32px;
@@ -37,6 +33,7 @@
                 }
             }
         }
+        @import 'OpenButton';
         @import 'ProjectUI';
     }
 

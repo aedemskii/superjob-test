@@ -36,9 +36,9 @@ class Adder extends Component {
                     <div className="head">
                         <span>{head}</span>
                         <div className="cancel" onClick={this.props.quitFromAddMode}>
-                            <img src={closeNormal}  alt="x" className="normal" />
-                            <img src={closeHovered} alt="X" className="hovered" />
-                            <img src={closePressed} alt="X" className="pressed" />
+                            <img src={closeNormal}  alt="" className="normal" />
+                            <img src={closeHovered} alt="" className="hovered" />
+                            <img src={closePressed} alt="" className="pressed" />
                         </div>
                     </div>
                     <div className="create-form">
