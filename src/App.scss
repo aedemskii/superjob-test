@@ -27,14 +27,19 @@
         margin: 70px 0 10px 0;
         @import "./components/styles/SearchForm";
         .ui-panel {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             .search-form {
-                vertical-align: middle;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
             }
-            .app-button {
+            /*.app-button {
                 vertical-align: middle;
                 float: right;
             }
-            @include after();
+            @include after();*/
         }
         .projects-holder {
             margin-top: 20px;

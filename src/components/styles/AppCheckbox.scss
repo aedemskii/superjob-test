@@ -1,7 +1,8 @@
 .add-checkbox {
-    position: relative;
-    display: inline-block;
-    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 25px;
     $w_h: 18px;
     @import "./clickable_image";
     @include clickable-image("checkbox", $w_h);

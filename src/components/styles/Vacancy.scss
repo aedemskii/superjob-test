@@ -17,18 +17,18 @@
     .vacancy-ui {
         display: flex;
         align-items: baseline;
-        justify-content: center;
         justify-content: space-between;
         margin: 15px 0 10px 0;
         .block {
             font-size: 13px;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
             .vacancy-status {
                 display: flex;
                 align-items: center;
             }
             .img-holder {
-                position: relative;
-                display: inline-block;
                 $w_h: 16px;
                 width: $w_h;
                 height: $w_h;
