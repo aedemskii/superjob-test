@@ -10,7 +10,7 @@ class TextInput extends Component {
         mistake.innerHTML = "";
     }
 
-    onChange = ((e) => {
+    onChange = (e) => {
         let input = e.currentTarget;
         if (input.value === " ") {
             input.value = ""
@@ -18,7 +18,7 @@ class TextInput extends Component {
             if (this.props.onChange) { this.props.onChange(); }
         }
 
-    }).bind(this);
+    }
 
     render() {
         let mistakeText = (<span id="mistake">mistake</span>);
