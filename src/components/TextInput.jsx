@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
 
 class TextInput extends Component {
-    inputOnMouseOver(e) {
+
+    inputOnMouseDown(e) {
         let input = e.currentTarget;
-        input.parentElement.classList.remove("wrong");
+        let inputHolder = input.parentNode;
+        let mistake = inputHolder.getElementsByTagName("span")[0];
+        inputHolder.classList.remove("wrong");
+        mistake.innerHTML = "";
     }
 
+    onChange = ((e) => {
+        let input = e.currentTarget;
+        if (input.value === " ") {
+            input.value = ""
+        } else {
+            if (this.props.onChange) { this.props.onChange(); }
+        }
+
+    }).bind(this);
+
     render() {
-        let mistakeText = (<span>mistake</span>);
+        let mistakeText = (<span id="mistake">mistake</span>);
         return (
             <div className="text-input-holder">
                 <input
@@ -15,8 +29,8 @@ class TextInput extends Component {
                     type="text"
                     value={this.props.value}
                     placeholder={this.props.placeholder}
-                    onMouseOver={this.inputOnClick}
-                    onChange={this.props.onChange}
+                    onMouseDown={this.inputOnMouseDown}
+                    onChange={this.onChange}
                     data={mistakeText}
                     />
                 <div className="mistake">

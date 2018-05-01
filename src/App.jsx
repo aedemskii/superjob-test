@@ -44,6 +44,7 @@ class App extends Component {
     }).bind(this);
 
     createObject = (function(name, projectIdx = -1) {
+        name = name[0].toUpperCase() + name.slice(1);
         let projects = this.state.projects.slice();
         if (projectIdx + 1) {
             projects[ projectIdx ].vacancies.push({
@@ -151,7 +152,7 @@ class App extends Component {
                     <Adder
                         onAdd={this.state.onAdd}
                         createObject={this.createObject}
-                        quitFromAddMode={this.quitFromAddMode}                        
+                        quitFromAddMode={this.quitFromAddMode}
                         />
                 </div>
             </div>

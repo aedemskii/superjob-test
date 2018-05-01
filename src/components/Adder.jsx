@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import closeNormal from './imgs/close-icon-normal.svg';
 import closeHovered from './imgs/close-icon-hovered.svg';
 import closePressed from './imgs/close-icon-pressed.svg';
+import passMistakeToInput from './passMistakeToInput';
 import TextInput from './TextInput';
 import AppButton from './AppButton';
 
@@ -10,10 +11,10 @@ class Adder extends Component {
     clickHandle = () => {
         let input = document.getElementById(this.inputId);
         let name = input.value;
-        if (name.replace(/ /g, "").length) {
-            this.props.createObject(name, this.props.onAdd);
+        if (name.length === 0) {
+            passMistakeToInput(this.inputId, "У проекта должно быть название");
         } else {
-            input.parentElement.classList.add("wrong");
+            this.props.createObject(name, this.props.onAdd);
         }
 
     }
@@ -29,7 +30,7 @@ class Adder extends Component {
             head = "Новый проект";
             inputPlaceholder = "Название проекта";
         }
-        
+
         return (
             <div className="dark-screen">
                 <div className="adder">

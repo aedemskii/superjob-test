@@ -40,6 +40,9 @@
     &.wrong {
         input {
             border-color: #f05c5c;
+            &:hover {
+                border-color: #f05c5c;
+            }
         }
         .mistake {
             display: block;
