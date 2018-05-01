@@ -1,10 +1,12 @@
-@import "./after_mixin.scss";
+// @import "./after_mixin.scss";
 
 .project-ui {
-    margin-top: 5px;
+    margin: 15px 0 20px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    justify-content: space-between;
     .block {
-        float: left;
-        text-align: left;
         .vacancies-number {
             position: relative;
             display: inline-block;
@@ -12,7 +14,6 @@
         .done {
             position: relative;
             display: inline-block;
-            padding: 9px 0;
             margin-left: 25px;
             img {
                 width: 16px;
@@ -23,18 +24,12 @@
                 margin-right: 10px;
             }
         }
-        .app-button {
-            margin: 10px 14px;
+        .app-button:last-of-type {
+            margin-left: 15px;
         }
-        &:last-of-type {
-            float: right;
-            text-align: right;
-            .app-button {
-                &:last-of-type {
-                    margin-right: 0;
-                }
-            }
+        .app-button:first-of-type {
+            margin-right: 30px;
         }
     }
-    @include after();
+    // @include after();
 }

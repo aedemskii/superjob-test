@@ -19,7 +19,7 @@ class VacancyStatus extends Component {
                 <div className="img-holder">
                     <img src={path} alt="" className={"img-" + name}/>
                 </div>
-                <span className="vacancy-status">{vacancyStatus}</span>
+                <span>{vacancyStatus}</span>
             </div>
         );
     }
