@@ -13,7 +13,10 @@ class AppCheckbox extends Component {
     render() {
         return (
             <div className="add-checkbox">
-                <div className="checkbox" onMouseDown={this.checkboxOnClick}>
+                <div
+                    className={"checkbox" + ( this.props.activeOnly ? " on" : "" )}
+                    onMouseDown={this.checkboxOnClick}
+                    >
                     <img src={onNormal}   alt="" className="on-normal" />
                     <img src={offHovered} alt="" className="off-hovered" />
                     <img src={offNormal}  alt="" className="off-normal" />

@@ -5,13 +5,18 @@ import AppButton from './AppButton';
 class UIPanel extends Component {
 
     addProject = () => {
+        this.props.clearSearchFilter();
         this.props.switchToAddMode();
     }
 
     render() {
         return (
             <div className="ui-panel">
-                <SearchForm setSearchFilter={this.props.setSearchFilter} />
+                <SearchForm
+                    searchFilter={this.props.searchFilter}
+                    setSearchFilter={this.props.setSearchFilter}
+
+                    />
                 <AppButton
                     text={"ДОБАВИТЬ ПРОЕКТ"}
                     className={"green"}

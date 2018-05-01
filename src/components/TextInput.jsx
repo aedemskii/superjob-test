@@ -13,6 +13,7 @@ class TextInput extends Component {
                 <input
                     id={this.props.id}
                     type="text"
+                    value={this.props.value}
                     placeholder={this.props.placeholder}
                     onMouseOver={this.inputOnClick}
                     onChange={this.props.onChange}

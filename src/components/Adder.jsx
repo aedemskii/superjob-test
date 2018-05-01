@@ -29,7 +29,7 @@ class Adder extends Component {
             head = "Новый проект";
             inputPlaceholder = "Название проекта";
         }
-
+        
         return (
             <div className="dark-screen">
                 <div className="adder">
@@ -44,6 +44,7 @@ class Adder extends Component {
                     <div className="create-form">
                         <TextInput id={this.inputId} placeholder={inputPlaceholder} />
                         <AppButton
+                            value=""
                             text={"СОЗДАТЬ"}
                             className={"green"}
                             onClick={this.clickHandle}

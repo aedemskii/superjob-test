@@ -14,11 +14,13 @@ class SearchForm extends Component {
             <div className="search-form">
                 <TextInput
                     id={this.inputId}
+                    value={this.props.searchFilter.name}
                     placeholder="Поиск по вакансиям"
                     onChange={this.setSearchFilter}
                     />
                 <AppCheckbox
                     setSearchFilter={this.props.setSearchFilter}
+                    activeOnly={this.props.searchFilter.activeOnly}
                     />
             </div>
         );

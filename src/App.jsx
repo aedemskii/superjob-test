@@ -101,7 +101,7 @@ class App extends Component {
         this.save();
     }).bind(this);
 
-    toggleOpenProject = (function(projectIdx) {        
+    toggleOpenProject = (function(projectIdx) {
         let projects = this.state.projects.slice();
         projects[ projectIdx ].isOpened = !projects[ projectIdx ].isOpened;
 
@@ -135,7 +135,9 @@ class App extends Component {
                 <div className="app-header"><span>Список проектов</span></div>
                 <div className="app-ui">
                     <UIPanel
+                        searchFilter={this.state.searchFilter}
                         setSearchFilter={this.setSearchFilter}
+                        clearSearchFilter={this.clearSearchFilter}
                         switchToAddMode={this.switchToAddMode}
                         />
                     <ProjectsHolder
@@ -149,7 +151,7 @@ class App extends Component {
                     <Adder
                         onAdd={this.state.onAdd}
                         createObject={this.createObject}
-                        quitFromAddMode={this.quitFromAddMode}
+                        quitFromAddMode={this.quitFromAddMode}                        
                         />
                 </div>
             </div>

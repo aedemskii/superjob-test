@@ -10,7 +10,6 @@ class ProjectsHolder extends Component {
 
         if (filter.name.length || filter.activeOnly) {
             projects = projectsFilter(projects, filter);
-            console.log(projects);
         }
 
         let projectsBodies = [],
