@@ -19,7 +19,7 @@ class ProjectsHolder extends Component {
                 if ( project === null ) return;
                 projectsBodies.push(
                     <Project
-                        key={"p_" + project.name}
+                        key={"p_" + project.name.replace(/ /g, '_')}
                         projectIdx={idx}
                         name={project.name}
                         isOpened={project.isOpened}
