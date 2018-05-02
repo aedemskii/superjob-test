@@ -16,7 +16,7 @@ class Adder extends Component {
             message = (addMode + 1) ?
                 'У вакансии должно быть название'
             :
-                'У проекта должно быть название';;
+                'У проекта должно быть название';
         } else {
             let condition = (_name) => { return _name.toUpperCase() === name.toUpperCase(); }
             let objects = this.props.projects;
@@ -27,7 +27,7 @@ class Adder extends Component {
                     (addMode + 1) ?
                         'В этом проекте уже есть вакансия с таким названием'
                     :
-                        'Проект с таким именем уже существует'
+                        'Проект с таким именем уже существует';
             }
         }
 

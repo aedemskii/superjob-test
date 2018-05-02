@@ -5,7 +5,7 @@ function oneFewMany(number, words) {
     } else if ([2, 3, 4].indexOf(number) + 1) {
         idx = 1;
     }
-    return number + ' ' + words[idx];
+    return `${number} ${words[idx]}`;
 }
 
 export default oneFewMany;

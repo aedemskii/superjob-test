@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/AppButton.scss'
+import './styles/AppButton.scss';
 
 function AppButton({onClick = () => {return}, className = '', text = 'КНОПКА'}) {
     if (className.length) { className = ' ' + className; }
