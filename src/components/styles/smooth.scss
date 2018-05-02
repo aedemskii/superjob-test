@@ -1,9 +1,0 @@
-.smooth-leave {
-    opacity: 1;
-    transform: translateX(0%);
-    &.smooth-leave-active {
-        opacity: 0.01;
-        transform: translateX(120%);
-        transition: 500ms ease-in;
-    }
-}

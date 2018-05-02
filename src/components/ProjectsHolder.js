@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import projectsFilter from './utils/projectsFilter';
 import Project from './Project';
 
@@ -38,13 +37,7 @@ class ProjectsHolder extends Component {
         );
         return (
             <div className="projects-holder">
-                <ReactCSSTransitionGroup
-                    transitionName="smooth"
-                    transitionEnter={false}
-                    transitionLeaveTimeout={800}
-                    >
-                    {projectsBodies}
-                </ReactCSSTransitionGroup>
+                {projectsBodies}
             </div>
         );
     }
