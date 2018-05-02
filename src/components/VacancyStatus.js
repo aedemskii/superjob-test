@@ -8,7 +8,7 @@ import search3 from './imgs/search@3x.png';
 
 class VacancyStatus extends Component {
     render() {
-        let vacancyStatus, src1, src2, src3, srcSet, name;
+        let vacancyStatus, src1, src2, src3, name;
         if (this.props.isActive) {
             vacancyStatus = 'Вакансия открыта, идет подбор кандидатов';
             src1 = search1;
@@ -25,7 +25,7 @@ class VacancyStatus extends Component {
         return (
             <div className='vacancy-status'>
                 <div className='img-holder'>
-                    <img src={src1} srcSet={src2, src3} alt='' className={'img-' + name}/>
+                    <img src={src1} srcSet={`${src2}, ${src3}`} alt='' className={'img-' + name}/>
                 </div>
                 <span>{vacancyStatus}</span>
             </div>

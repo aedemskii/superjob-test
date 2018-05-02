@@ -39,7 +39,7 @@ class ProjectUI extends Component {
         } else {
              doneOrAddButton = (
                 <div className='done'>
-                    <img alt='' src={done1} srcSet={done2, done3} />
+                    <img alt='' src={done1} srcSet={`${done2}, ${done3}`} />
                     <span>Проект закрыт, сотрудники наняты</span>
                 </div>
             );
