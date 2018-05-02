@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import defaultProjects from './components/defaultProjects.js';
+import defaultProjects from './components/utils/defaultProjects';
 import UIPanel from './components/UIPanel';
 import ProjectsHolder from './components/ProjectsHolder';
 import Adder from './components/Adder';
@@ -35,98 +35,110 @@ class App extends Component {
         }
     }
 
-    switchToAddMode = (function(projectIdx = -1) {
+    switchToAddMode = (projectIdx = -1) => {
         this.setState({ addMode: projectIdx });
-    }).bind(this);
+    }
 
-    quitFromAddMode = (function() {
+    quitFromAddMode = () => {
         this.setState({ addMode: null });
-    }).bind(this);
+    }
 
-    createObject = (function(name, projectIdx = -1) {
+    createProject = (name) => {
         name = name[0].toUpperCase() + name.slice(1);
-        let projects = this.state.projects.slice();
-        if (projectIdx + 1) {
-            projects[ projectIdx ].vacancies.push({
-                name: name,
-                isActive: true
-            })
-        } else {
-            projects.push({
-                name: name,
-                vacancies: [],
-                isActive: true,
-                isOpened: false
-            })
-        }
+        const projects = this.state.projects.slice();
+
+        projects.push({
+            name: name,
+            vacancies: [],
+            isActive: true,
+            isOpened: false
+        })
+
         this.setState({ projects: projects });
         this.save();
         this.quitFromAddMode();
-    }).bind(this);
+    }
 
-    deleteObject = (function(projectIdx, vacancyIdx = -1) {
-        let projects = this.state.projects.slice();
-        if (vacancyIdx + 1) {
-            projects[ projectIdx ].vacancies.splice(vacancyIdx, 1);
-        } else {
-            projects.splice(projectIdx, 1)
-        }
-        this.setState({ projects: projects });
-        this.save();
-    }).bind(this);
+    createVacancy = (name, projectIdx) => {
+        name = name[0].toUpperCase() + name.slice(1);
+        const projects = this.state.projects.slice();
 
-    toggleActiveObject = (function(projectIdx, vacancyIdx = -1) {
-        let currentElem, projects = this.state.projects.slice();
-        currentElem = projects[ projectIdx ];
-
-        if (vacancyIdx + 1) {
-            let project = currentElem;
-            currentElem = currentElem.vacancies[ vacancyIdx ];
-            currentElem.isActive = !currentElem.isActive;
-            if (currentElem.isActive) {
-                project.isActive = true;
-            }
-        }
-        else if (currentElem.isActive) {
-            currentElem.isActive = false;
-            let len = currentElem.vacancies.length;
-            for ( let idx = 0; idx < len; idx++ ) {
-                currentElem.vacancies[idx].isActive = false;
-            }
-        }
-        else {
-            currentElem.isActive = true;
-        }
+        projects[ projectIdx ].vacancies.push({
+            name: name,
+            isActive: true
+        })
 
         this.setState({ projects: projects });
         this.save();
-    }).bind(this);
+        this.quitFromAddMode();
+    }
 
-    toggleOpenProject = (function(projectIdx) {
-        let projects = this.state.projects.slice();
+    deleteProject = (projectIdx) => {
+        const projects = this.state.projects.slice();
+        projects.splice(projectIdx, 1);
+        this.setState({ projects: projects });
+        this.save();
+    }
+
+    deleteVacancy = (projectIdx, vacancyIdx) => {
+        const projects = this.state.projects.slice();
+        projects[ projectIdx ].vacancies.splice(vacancyIdx, 1);
+        this.setState({ projects: projects });
+        this.save();
+    }
+
+    toggleActiveProject = (projectIdx) => {
+        const projects = this.state.projects.slice();
+        const project = projects[ projectIdx ];
+        project.isActive = !project.isActive;
+        if (!project.isActive) {
+            project.vacancies.forEach(
+                (vacancy) => {
+                    vacancy.isActive = false;
+                }
+            )
+        }
+        this.setState({ projects: projects });
+        this.save();
+    }
+
+    toggleActiveVacancy = (projectIdx, vacancyIdx) => {
+        const projects = this.state.projects.slice();
+        const project = projects[ projectIdx ];
+        const vacancy = project.vacancies[ vacancyIdx ];
+        vacancy.isActive = !vacancy.isActive;
+        if (vacancy.isActive) {
+            project.isActive = true;
+        }
+        this.setState({ projects: projects });
+        this.save();
+    }
+
+    toggleOpenProject = (projectIdx) => {
+        const projects = this.state.projects.slice();
         projects[ projectIdx ].isOpened = !projects[ projectIdx ].isOpened;
 
         this.setState({ projects: projects });
         this.save();
-    }).bind(this);
+    }
 
-    clearSearchFilter = (function() {
-        let newSearchFilter = {
+    clearSearchFilter = () => {
+        const newSearchFilter = {
             name: "",
             activeOnly: false
         }
         this.setState({ searchFilter: newSearchFilter });
-    }).bind(this);
+    }
 
-    setSearchFilter = (function(stringFilter) {
-        let newSearchFilter = Object.assign({}, this.state.searchFilter);
+    setSearchFilter = (stringFilter) => {
+        const newSearchFilter = Object.assign({}, this.state.searchFilter);
         if (typeof(stringFilter) === "string") {
             newSearchFilter.name = stringFilter;
         } else {
             newSearchFilter.activeOnly = !newSearchFilter.activeOnly;
         }
         this.setState({ searchFilter: newSearchFilter });
-    }).bind(this);
+    }
 
 
     render() {
@@ -146,13 +158,16 @@ class App extends Component {
                         searchFilter={this.state.searchFilter}
                         switchToAddMode={this.switchToAddMode}
                         toggleOpenProject={this.toggleOpenProject}
-                        toggleActiveObject={this.toggleActiveObject}
-                        deleteObject={this.deleteObject}
+                        toggleActiveProject={this.toggleActiveProject}
+                        toggleActiveVacancy={this.toggleActiveVacancy}
+                        deleteProject={this.deleteProject}
+                        deleteVacancy={this.deleteVacancy}
                         />
                     <Adder
                         projects={this.state.projects}
                         addMode={this.state.addMode}
-                        createObject={this.createObject}
+                        createProject={this.createProject}
+                        createVacancy={this.createVacancy}
                         quitFromAddMode={this.quitFromAddMode}
                         />
                 </div>

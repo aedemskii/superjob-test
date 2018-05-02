@@ -5,11 +5,11 @@ import ProjectVacanciesHolder from './ProjectVacanciesHolder';
 
 class Project extends Component {
     render() {
-        let openedVacanciesNumber = (
+        const openedVacanciesNumber = (
             this.props.vacancies.filter((vac) => { return vac.isActive; })
         ).length
         return (
-            <div className={"project" + (this.props.isOpened ? " opened" : "")}>
+            <div className={'project' + (this.props.isOpened ? ' opened' : '')}>
                 <ProjectHead
                     name={this.props.name}
                     isOpened={this.props.isOpened}
@@ -18,16 +18,16 @@ class Project extends Component {
                     openedVacanciesNumber={openedVacanciesNumber}
                     switchToAddMode={this.props.switchToAddMode}
                     toggleOpenProject={this.props.toggleOpenProject}
-                    toggleActiveObject={this.props.toggleActiveObject}
-                    deleteObject={this.props.deleteObject}
+                    toggleActiveProject={this.props.toggleActiveProject}
+                    deleteProject={this.props.deleteProject}
                     projectIdx={this.props.projectIdx}
                 />
                 <ProjectVacanciesHolder
                     vacancies={this.props.vacancies}
                     toRender={this.props.isOpened}
                     switchToAddMode={this.props.switchToAddMode}
-                    toggleActiveObject={this.props.toggleActiveObject}
-                    deleteObject={this.props.deleteObject}
+                    toggleActiveVacancy={this.props.toggleActiveVacancy}
+                    deleteVacancy={this.props.deleteVacancy}
                     projectIdx={this.props.projectIdx}
                     />
             </div>

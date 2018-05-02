@@ -1,39 +1,39 @@
 import React, { Component } from 'react';
-import AppButton from "./AppButton";
-import VacancyStatus from "./VacancyStatus";
+import AppButton from './AppButton';
+import VacancyStatus from './VacancyStatus';
 
 class VacancyUI extends Component {
 
     deleteVacancy = () => {
-        this.props.deleteObject(this.props.projectIdx, this.props.vacancyIdx);
+        this.props.deleteVacancy(this.props.projectIdx, this.props.vacancyIdx);
     }
 
     toggleActiveVacancy = () => {
-        this.props.toggleActiveObject(this.props.projectIdx, this.props.vacancyIdx);
+        this.props.toggleActiveVacancy(this.props.projectIdx, this.props.vacancyIdx);
     }
 
     render() {
-        let buttonData = {};
+        const buttonData = {};
         if (this.props.isActive) {
-            buttonData.text = "ЗАКРЫТЬ ВАКАНСИЮ";
+            buttonData.text = 'ЗАКРЫТЬ ВАКАНСИЮ';
         } else {
-            buttonData.text = "ОТКРЫТЬ ВАКАНСИЮ";
-            buttonData.className = "color-green";
+            buttonData.text = 'ОТКРЫТЬ ВАКАНСИЮ';
+            buttonData.className = 'color-green';
         }
         return(
-            <div className="vacancy-ui">
-                <div className="block">
+            <div className='vacancy-ui'>
+                <div className='block'>
                     <VacancyStatus isActive={this.props.isActive}/>
                 </div>
-                <div className="block">
+                <div className='block'>
                     <AppButton
                         text={buttonData.text}
                         className={buttonData.className}
                         onClick={this.toggleActiveVacancy}
                         />
                     <AppButton
-                        text="УДАЛИТЬ"
-                        className="color-red"
+                        text='УДАЛИТЬ'
+                        className='color-red'
                         onClick={this.deleteVacancy}
                         />
                 </div>

@@ -10,8 +10,8 @@ class ProjectHead extends Component {
 
     render() {
         return (
-            <div className="project-head">
-                <div className={"project-name" + (this.props.isActive ? "" : " grey")}>
+            <div className='project-head'>
+                <div className={'project-name' + (this.props.isActive ? '' : ' grey')}>
                     <span>{this.props.name}</span>
                 </div>
                 <OpenButton
@@ -25,8 +25,8 @@ class ProjectHead extends Component {
                     isOpened={this.props.isOpened}
                     isActive={this.props.isActive}
                     switchToAddMode={this.props.switchToAddMode}
-                    toggleActiveObject={this.props.toggleActiveObject}
-                    deleteObject={this.props.deleteObject}
+                    toggleActiveProject={this.props.toggleActiveProject}
+                    deleteProject={this.props.deleteProject}
                 />
             </div>
         );

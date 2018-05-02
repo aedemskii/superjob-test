@@ -4,8 +4,8 @@
     justify-content: space-between;
     margin: 0 25px;
     $w_h: 18px;
-    @import "./clickable_image";
-    @include clickable-image("checkbox", $w_h);
+    @import './clickable_image';
+    @include clickable-image('checkbox', $w_h);
     .checkbox {
         position: relative;
         display: inline-block;

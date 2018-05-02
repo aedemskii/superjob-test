@@ -3,19 +3,19 @@ import AppCheckbox from './AppCheckbox';
 import TextInput from './TextInput';
 
 class SearchForm extends Component {
-    inputId = "search_filter";
+    inputId = 'search_filter';
     setSearchFilter = () => {
-        let input = document.getElementById(this.inputId);
+        const input = document.getElementById(this.inputId);
         this.props.setSearchFilter(input.value);
     }
 
     render() {
         return (
-            <div className="search-form">
+            <div className='search-form'>
                 <TextInput
                     id={this.inputId}
                     value={this.props.searchFilter.name}
-                    placeholder="Поиск по вакансиям"
+                    placeholder='Поиск по вакансиям'
                     onChange={this.setSearchFilter}
                     />
                 <AppCheckbox

@@ -9,11 +9,11 @@ class OpenButton extends Component {
         if (this.props.vacanciesNumber) {
             OpenButton = (
                 <div
-                    className={"open-button" + ( this.props.isOpened ? " opened" : "" )}
+                    className={'open-button' + ( this.props.isOpened ? ' opened' : '' )}
                     onMouseDown={this.props.toggleOpenProject}
                     >
-                    <img src={trNormal} alt="" className="tr-normal" />
-                    <img src={trHovered} alt="" className="tr-hovered" />
+                    <img src={trNormal} alt='' className='tr-normal' />
+                    <img src={trHovered} alt='' className='tr-hovered' />
                 </div>
             );
         }

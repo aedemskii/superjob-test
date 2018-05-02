@@ -1,5 +1,5 @@
-@import "./clickable_image";
-@include clickable-image("open-button", 10px, 6px);
+@import './clickable_image';
+@include clickable-image('open-button', 10px, 6px);
 .open-button {
     position: absolute;
     top: 0;

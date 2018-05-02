@@ -1,4 +1,4 @@
-@mixin clickable-image($className: "clickable-image", $width: 10px, $height: $width) {
+@mixin clickable-image($className: 'clickable-image', $width: 10px, $height: $width) {
     .#{$className} {
         cursor: pointer;
         width: $width;

@@ -2,22 +2,21 @@ import React, { Component } from 'react';
 import closeNormal from './imgs/close-icon-normal.svg';
 import closeHovered from './imgs/close-icon-hovered.svg';
 import closePressed from './imgs/close-icon-pressed.svg';
-import passMistakeToInput from './passMistakeToInput';
+import passMistakeToInput from './utils/passMistakeToInput';
 import TextInput from './TextInput';
 import AppButton from './AppButton';
 
 class Adder extends Component {
-    inputId = "new_object_name";
+    inputId = 'new_object_name';
     clickHandle = () => {
         let input = document.getElementById(this.inputId);
         let name = input.value;
         let message, addMode = this.props.addMode;
         if (name.length === 0) {
-            message =
-                (addMode + 1) ?
-                    "У вакансии должно быть название"
-                :
-                    "У проекта должно быть название";
+            message = (addMode + 1) ?
+                'У вакансии должно быть название'
+            :
+                'У проекта должно быть название';;
         } else {
             let condition = (_name) => { return _name.toUpperCase() === name.toUpperCase(); }
             let objects = this.props.projects;
@@ -26,9 +25,9 @@ class Adder extends Component {
             if (objects.filter((obj) => { return condition(obj.name) }).length) {
                 message =
                     (addMode + 1) ?
-                        "В этом проекте уже есть вакансия с таким названием"
+                        'В этом проекте уже есть вакансия с таким названием'
                     :
-                        "Проект с таким именем уже существует"
+                        'Проект с таким именем уже существует'
             }
         }
 
@@ -36,12 +35,17 @@ class Adder extends Component {
             passMistakeToInput(this.inputId, message);
         } else {
             document.removeEventListener('keypress', this.onKeyDown);
-            this.props.createObject(name, this.props.addMode);
+            if (addMode + 1) {
+                this.props.createVacancy(name, this.props.addMode);
+            } else {
+                this.props.createProject(name);
+            }
+
         }
 
     }
 
-    onKeyDown = (function(e) {
+    onKeyDown = (e) => {
         var key = e.which || e.keyCode;
         if (key === 13) {
             this.clickHandle();
@@ -49,11 +53,11 @@ class Adder extends Component {
             document.removeEventListener('keydown', this.onKeyDown);
             this.props.quitFromAddMode();
         }
-    }).bind(this);
+    }
 
     render() {
         if (this.props.addMode === null) return true;
-        
+
         setTimeout(
             (function() {
                 let input = document.getElementById(this.inputId);
@@ -67,30 +71,30 @@ class Adder extends Component {
 
         let head, inputPlaceholder;
         if (this.props.addMode + 1) {
-            head = "Новая вакансия";
-            inputPlaceholder = "Название вакансии";
+            head = 'Новая вакансия';
+            inputPlaceholder = 'Название вакансии';
         } else {
-            head = "Новый проект";
-            inputPlaceholder = "Название проекта";
+            head = 'Новый проект';
+            inputPlaceholder = 'Название проекта';
         }
 
         return (
-            <div className="dark-screen">
-                <div className="adder">
-                    <div className="head">
+            <div className='dark-screen'>
+                <div className='adder'>
+                    <div className='head'>
                         <span>{head}</span>
-                        <div className="cancel" onClick={this.props.quitFromAddMode}>
-                            <img src={closeNormal}  alt="" className="normal" />
-                            <img src={closeHovered} alt="" className="hovered" />
-                            <img src={closePressed} alt="" className="pressed" />
+                        <div className='cancel' onClick={this.props.quitFromAddMode}>
+                            <img src={closeNormal}  alt='' className='normal' />
+                            <img src={closeHovered} alt='' className='hovered' />
+                            <img src={closePressed} alt='' className='pressed' />
                         </div>
                     </div>
-                    <div className="create-form">
+                    <div className='create-form'>
                         <TextInput id={this.inputId} placeholder={inputPlaceholder} />
                         <AppButton
-                            value=""
-                            text={"СОЗДАТЬ"}
-                            className={"green"}
+                            value=''
+                            text={'СОЗДАТЬ'}
+                            className={'green'}
                             onClick={this.clickHandle}
                             />
                     </div>

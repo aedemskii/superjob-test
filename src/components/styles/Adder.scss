@@ -21,8 +21,8 @@
           font-size: 19px;
           margin-bottom: 15px;
           $w_h: 14px;
-          @import "./clickable_image";
-          @include clickable-image("cancel", $w_h);
+          @import './clickable_image';
+          @include clickable-image('cancel', $w_h);
           .cancel {
               position: absolute;
               top: 0;
@@ -45,11 +45,11 @@
           justify-content: space-between;
           border-top: 1px solid rgba(0, 0, 0, 0.12);
           padding-top: 20px;
-          @import "./TextInput";
+          @import './TextInput';
           .text-input-holder input {
               width: 440px;
           }
-          @import "./AppButton";
+          @import './AppButton';
       }
 
   }

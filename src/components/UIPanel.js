@@ -11,15 +11,15 @@ class UIPanel extends Component {
 
     render() {
         return (
-            <div className="ui-panel">
+            <div className='ui-panel'>
                 <SearchForm
                     searchFilter={this.props.searchFilter}
                     setSearchFilter={this.props.setSearchFilter}
 
                     />
                 <AppButton
-                    text={"ДОБАВИТЬ ПРОЕКТ"}
-                    className={"green"}
+                    text={'ДОБАВИТЬ ПРОЕКТ'}
+                    className={'green'}
                     onClick={this.addProject}
                     />
             </div>

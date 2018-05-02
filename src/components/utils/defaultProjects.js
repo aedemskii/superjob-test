@@ -1,14 +1,14 @@
 function _projects() {
     return [
         {
-            name: "SuperJob Frontend",
+            name: 'SuperJob Frontend',
             vacancies: [
                 {
-                    name: "Frontend Middle Developer",
+                    name: 'Frontend Middle Developer',
                     isActive: true
                 },
                 {
-                    name: "Frontend Junior Developer",
+                    name: 'Frontend Junior Developer',
                     isActive: false
                 }
             ],
@@ -16,10 +16,10 @@ function _projects() {
             isOpened: true
         },
         {
-            name: "SuperJob Backend",
+            name: 'SuperJob Backend',
             vacancies: [
                 {
-                    name: "Backend Senior Developer",
+                    name: 'Backend Senior Developer',
                     isActive: true
                 }
             ],
@@ -27,7 +27,7 @@ function _projects() {
             isOpened: true
         },
         {
-            name: "Machine learning",
+            name: 'Machine learning',
             vacancies: [],
             isActive: false,
             isOpened: false
