@@ -9,14 +9,17 @@
     align-items: center;
     justify-content: center;
     .modal {
+        position: relative;
         width: 552px;
         background-color: #ffffff;
+        padding: 24px;
         border-radius: 3px;
         box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.24), 0 0 24px 0 rgba(0, 0, 0, 0.12);
         margin: auto;
-        .modal-content {
+        .head {
             position: relative;
-            margin: 24px;
+            font-size: 19px;
+            margin-bottom: 15px;
             $w_h: 14px;
             @import './clickable_image';
             @include clickable-image('cancel', $w_h);
@@ -35,23 +38,18 @@
                     .hovered, .normal {display: none};
                 }
             }
-            .head {
-                position: relative;
-                font-size: 19px;
-                margin-bottom: 15px;
+        }
+        .create-form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
+            padding-top: 20px;
+            @import './TextInput';
+            .text-input-holder input {
+                width: 440px;
             }
-            .create-form {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                border-top: 1px solid rgba(0, 0, 0, 0.12);
-                padding-top: 20px;
-                @import './TextInput';
-                .text-input-holder input {
-                    width: 440px;
-                }
-                @import './AppButton';
-            }
+            @import './AppButton';
         }
     }
 }
