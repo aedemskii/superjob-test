@@ -35,13 +35,35 @@ class Adder extends Component {
         if (message) {
             passMistakeToInput(this.inputId, message);
         } else {
+            document.removeEventListener('keypress', this.onKeyDown);
             this.props.createObject(name, this.props.addMode);
         }
 
     }
 
+    onKeyDown = (function(e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) {
+            this.clickHandle();
+        } else if (key === 27) {
+            document.removeEventListener('keydown', this.onKeyDown);
+            this.props.quitFromAddMode();
+        }
+    }).bind(this);
+
     render() {
         if (this.props.addMode === null) return true;
+        
+        setTimeout(
+            (function() {
+                let input = document.getElementById(this.inputId);
+                if (input) {
+                    input.focus();
+                    document.addEventListener('keydown', this.onKeyDown);
+                }
+            }).bind(this)
+        , 0)
+
 
         let head, inputPlaceholder;
         if (this.props.addMode + 1) {
