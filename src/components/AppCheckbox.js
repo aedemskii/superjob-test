@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import offNormal from './imgs/off-normal.svg';
 import offHovered from './imgs/off-hovered.svg';
 import onNormal from './imgs/on-normal.svg';
+
 class AppCheckbox extends Component {
 
     checkboxOnClick = (e) => {
         const checkbox = e.currentTarget;
         checkbox.classList.toggle('on');
         this.props.setSearchFilter();
-    }
+    };
 
     render() {
         return (

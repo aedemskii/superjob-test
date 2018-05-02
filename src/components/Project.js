@@ -7,7 +7,7 @@ class Project extends Component {
     render() {
         const openedVacanciesNumber = (
             this.props.vacancies.filter((vac) => { return vac.isActive; })
-        ).length
+        ).length;
         return (
             <div className={'project' + (this.props.isOpened ? ' opened' : '')}>
                 <ProjectHead

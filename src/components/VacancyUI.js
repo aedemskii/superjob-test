@@ -6,11 +6,11 @@ class VacancyUI extends Component {
 
     deleteVacancy = () => {
         this.props.deleteVacancy(this.props.projectIdx, this.props.vacancyIdx);
-    }
+    };
 
     toggleActiveVacancy = () => {
         this.props.toggleActiveVacancy(this.props.projectIdx, this.props.vacancyIdx);
-    }
+    };
 
     render() {
         const buttonData = {};

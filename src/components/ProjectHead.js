@@ -6,7 +6,7 @@ class ProjectHead extends Component {
 
     toggleOpenProject = () => {
         this.props.toggleOpenProject(this.props.projectIdx);
-    }
+    };
 
     render() {
         return (

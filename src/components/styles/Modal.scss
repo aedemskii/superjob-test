@@ -8,36 +8,36 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  .adder {
+  .modal {
+      position: relative;
       width: 552px;
-      height: 88px;
       background-color: #ffffff;
-      padding: 34px 24px;
+      padding: 34px 24px 24px 24px;
       border-radius: 3px;
       box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.24), 0 0 24px 0 rgba(0, 0, 0, 0.12);
       margin: auto;
+      $w_h: 14px;
+      @import './clickable_image';
+      @include clickable-image('cancel', $w_h);
+      .cancel {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          .normal {display: block};
+          .hovered, .pressed {display: none};
+          &:hover {
+              .hovered {display: block};
+              .normal, .pressed {display: none};
+          }
+          &:active {
+              .pressed {display: block};
+              .hovered, .normal {display: none};
+          }
+      }
       .head {
           position: relative;
           font-size: 19px;
           margin-bottom: 15px;
-          $w_h: 14px;
-          @import './clickable_image';
-          @include clickable-image('cancel', $w_h);
-          .cancel {
-              position: absolute;
-              top: 0;
-              right: 0;
-              .normal {display: block};
-              .hovered, .pressed {display: none};
-              &:hover {
-                  .hovered {display: block};
-                  .normal, .pressed {display: none};
-              }
-              &:active {
-                  .pressed {display: block};
-                  .hovered, .normal {display: none};
-              }
-          }
       }
       .create-form {
           display: flex;

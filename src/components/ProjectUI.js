@@ -8,15 +8,15 @@ class ProjectUI extends Component {
 
     deleteProject = () => {
         this.props.deleteProject(this.props.projectIdx);
-    }
+    };
 
     toggleActiveProject = () => {
         this.props.toggleActiveProject(this.props.projectIdx);
-    }
+    };
 
     addVacancy = () => {
         this.props.switchToAddMode(this.props.projectIdx);
-    }
+    };
 
     render() {
         let doneOrAddButton, activateDisactivate;
@@ -49,7 +49,7 @@ class ProjectUI extends Component {
                     />
             );
         }
-        const info = oneFewMany(this.props.openedVacanciesNumber, ['вакансия', 'вакансии', 'вакансий'])
+        const info = oneFewMany(this.props.openedVacanciesNumber, ['вакансия', 'вакансии', 'вакансий']);
         return(
             <div className='project-ui'>
                 <div className='block'>

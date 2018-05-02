@@ -7,7 +7,7 @@ class SearchForm extends Component {
     setSearchFilter = () => {
         const input = document.getElementById(this.inputId);
         this.props.setSearchFilter(input.value);
-    }
+    };
 
     render() {
         return (

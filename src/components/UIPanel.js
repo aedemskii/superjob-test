@@ -7,7 +7,7 @@ class UIPanel extends Component {
     addProject = () => {
         this.props.clearSearchFilter();
         this.props.switchToAddMode();
-    }
+    };
 
     render() {
         return (

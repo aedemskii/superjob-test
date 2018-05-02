@@ -3,7 +3,7 @@ import './App.scss';
 import defaultProjects from './components/utils/defaultProjects';
 import UIPanel from './components/UIPanel';
 import ProjectsHolder from './components/ProjectsHolder';
-import Adder from './components/Adder';
+import Modal from './components/Modal';
 
 class App extends Component {
     constructor(props) {
@@ -23,7 +23,6 @@ class App extends Component {
                 name: ""
             }
         };
-
     }
 
     save = () => {
@@ -33,15 +32,15 @@ class App extends Component {
         catch (err) {
             console.warn("save() is failed");
         }
-    }
+    };
 
     switchToAddMode = (projectIdx = -1) => {
         this.setState({ addMode: projectIdx });
-    }
+    };
 
-    quitFromAddMode = () => {
+    quitFromModal = () => {
         this.setState({ addMode: null });
-    }
+    };
 
     createProject = (name) => {
         name = name[0].toUpperCase() + name.slice(1);
@@ -56,8 +55,8 @@ class App extends Component {
 
         this.setState({ projects: projects });
         this.save();
-        this.quitFromAddMode();
-    }
+        this.quitFromModal();
+    };
 
     createVacancy = (name, projectIdx) => {
         name = name[0].toUpperCase() + name.slice(1);
@@ -70,22 +69,22 @@ class App extends Component {
 
         this.setState({ projects: projects });
         this.save();
-        this.quitFromAddMode();
-    }
+        this.quitFromModal();
+    };
 
     deleteProject = (projectIdx) => {
         const projects = this.state.projects.slice();
         projects.splice(projectIdx, 1);
         this.setState({ projects: projects });
         this.save();
-    }
+    };
 
     deleteVacancy = (projectIdx, vacancyIdx) => {
         const projects = this.state.projects.slice();
         projects[ projectIdx ].vacancies.splice(vacancyIdx, 1);
         this.setState({ projects: projects });
         this.save();
-    }
+    };
 
     toggleActiveProject = (projectIdx) => {
         const projects = this.state.projects.slice();
@@ -100,7 +99,7 @@ class App extends Component {
         }
         this.setState({ projects: projects });
         this.save();
-    }
+    };
 
     toggleActiveVacancy = (projectIdx, vacancyIdx) => {
         const projects = this.state.projects.slice();
@@ -112,7 +111,7 @@ class App extends Component {
         }
         this.setState({ projects: projects });
         this.save();
-    }
+    };
 
     toggleOpenProject = (projectIdx) => {
         const projects = this.state.projects.slice();
@@ -120,7 +119,7 @@ class App extends Component {
 
         this.setState({ projects: projects });
         this.save();
-    }
+    };
 
     clearSearchFilter = () => {
         const newSearchFilter = {
@@ -128,7 +127,7 @@ class App extends Component {
             activeOnly: false
         }
         this.setState({ searchFilter: newSearchFilter });
-    }
+    };
 
     setSearchFilter = (stringFilter) => {
         const newSearchFilter = Object.assign({}, this.state.searchFilter);
@@ -138,7 +137,7 @@ class App extends Component {
             newSearchFilter.activeOnly = !newSearchFilter.activeOnly;
         }
         this.setState({ searchFilter: newSearchFilter });
-    }
+    };
 
 
     render() {
@@ -163,12 +162,12 @@ class App extends Component {
                         deleteProject={this.deleteProject}
                         deleteVacancy={this.deleteVacancy}
                         />
-                    <Adder
+                    <Modal
                         projects={this.state.projects}
                         addMode={this.state.addMode}
                         createProject={this.createProject}
                         createVacancy={this.createVacancy}
-                        quitFromAddMode={this.quitFromAddMode}
+                        quitFromModal={this.quitFromModal}
                         />
                 </div>
             </div>

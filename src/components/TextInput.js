@@ -8,7 +8,7 @@ class TextInput extends Component {
         const mistake = inputHolder.getElementsByTagName('span')[0];
         inputHolder.classList.remove('wrong');
         mistake.innerHTML = '';
-    }
+    };
 
     onChange = (e) => {
         const input = e.currentTarget;
@@ -18,7 +18,7 @@ class TextInput extends Component {
             if (this.props.onChange) { this.props.onChange(); }
         }
 
-    }
+    };
 
     render() {
         const mistakeText = (<span id='mistake'>mistake</span>);
