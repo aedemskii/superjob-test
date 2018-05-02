@@ -13,7 +13,7 @@ function _projects() {
                 }
             ],
             isActive: true,
-            isOpened: true
+            isOpened: false
         },
         {
             name: 'SuperJob Backend',
