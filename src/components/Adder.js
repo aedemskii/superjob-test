@@ -56,7 +56,7 @@ class Adder extends Component {
     }
 
     render() {
-        if (this.props.addMode === null) return true;
+        if (this.props.addMode === null) return null;
 
         setTimeout(
             (function() {

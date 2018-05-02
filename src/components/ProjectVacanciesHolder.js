@@ -3,7 +3,7 @@ import Vacancy from './Vacancy';
 
 class ProjectVacanciesHolder extends Component {
     render () {
-        if (!this.props.toRender) return true;
+        if (!this.props.toRender) return null;
         const vacancies = this.props.vacancies;
         const vacanciesBodies = [];
         vacancies.forEach(
