@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import oneFewMany from './utils/oneFewMany';
-import done from './imgs/done.svg';
+import done1 from './imgs/done@1x.png';
+import done2 from './imgs/done@2x.png';
+import done3 from './imgs/done@3x.png';
 import AppButton from './AppButton';
 
 
@@ -37,7 +39,7 @@ class ProjectUI extends Component {
         } else {
              doneOrAddButton = (
                 <div className='done'>
-                    <img alt='' src={done} />
+                    <img alt='' src={done1} srcSet={done2, done3} />
                     <span>Проект закрыт, сотрудники наняты</span>
                 </div>
             );
