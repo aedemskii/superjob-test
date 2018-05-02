@@ -30,7 +30,7 @@ class ProjectUI extends Component {
              );
              activateDisactivate = (
                  <AppButton
-                    text={"ЗАКРЫТЬ ПРОЕКТ"}
+                    text="ЗАКРЫТЬ ПРОЕКТ"
                     onClick={this.toggleActiveProject}
                     />
              );
@@ -43,8 +43,8 @@ class ProjectUI extends Component {
             );
             activateDisactivate = (
                 <AppButton
-                    text={"ОТКРЫТЬ ПРОЕКТ"}
-                    className={"color-green"}
+                    text="ОТКРЫТЬ ПРОЕКТ"
+                    className="color-green"
                     onClick={this.toggleActiveProject}
                     />
             );
@@ -62,8 +62,9 @@ class ProjectUI extends Component {
                 <div className="block">
                     {activateDisactivate}
                     <AppButton
-                        text={"УДАЛИТЬ"}
+                        text="УДАЛИТЬ"
                         onClick={this.deleteProject}
+                        className="color-red"
                         />
                 </div>
             </div>

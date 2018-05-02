@@ -32,7 +32,8 @@ class VacancyUI extends Component {
                         onClick={this.toggleActiveVacancy}
                         />
                     <AppButton
-                        text={"УДАЛИТЬ"}
+                        text="УДАЛИТЬ"
+                        className="color-red"
                         onClick={this.deleteVacancy}
                         />
                 </div>

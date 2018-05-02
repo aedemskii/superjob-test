@@ -14,7 +14,7 @@ function projectsFilter(_projects, filter) {
     if (filter.activeOnly) {
         for ( let idx = 0; idx < len; idx++ ) {
             projects[idx].vacancies = projects[idx].vacancies.filter(
-                (vac) => { return vac.isActive }
+                (vac) => { return vac.isActive; }
             );
         }
     }

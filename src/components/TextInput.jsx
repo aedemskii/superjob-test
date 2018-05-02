@@ -13,7 +13,7 @@ class TextInput extends Component {
     onChange = (e) => {
         let input = e.currentTarget;
         if (input.value === " ") {
-            input.value = ""
+            input.value = "";
         } else {
             if (this.props.onChange) { this.props.onChange(); }
         }

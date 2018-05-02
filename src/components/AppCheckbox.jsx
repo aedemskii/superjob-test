@@ -6,7 +6,7 @@ class AppCheckbox extends Component {
 
     checkboxOnClick = (e) => {
         let checkbox = e.currentTarget;
-        checkbox.classList.toggle("on")
+        checkbox.classList.toggle("on");
         this.props.setSearchFilter();
     }
 

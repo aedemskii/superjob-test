@@ -7,12 +7,12 @@ class VacancyStatus extends Component {
         let vacancyStatus, path, name;
         if (this.props.isActive) {
             vacancyStatus = "Вакансия открыта, идет подбор кандидатов";
-            path = search
-            name = "search"
+            path = search;
+            name = "search";
         } else {
             vacancyStatus = "Вакансия закрыта, сотрудник нанят";
-            path = done
-            name = "done"
+            path = done;
+            name = "done";
         }
         return (
             <div className="vacancy-status">

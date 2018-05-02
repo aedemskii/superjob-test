@@ -10,14 +10,14 @@ class App extends Component {
         super(props);
         let projects;
         try {
-            projects = JSON.parse(window.localStorage.getItem('__app_state'))
+            projects = JSON.parse(window.localStorage.getItem('__app_state'));
         }
         catch (err) {
             console.warn("window.localStorage.getItem() is failed");
         }
         this.state = {
             projects: projects || defaultProjects(),
-            onAdd: null,
+            addMode: null,
             searchFilter: {
                 activeOnly: false,
                 name: ""
@@ -36,11 +36,11 @@ class App extends Component {
     }
 
     switchToAddMode = (function(projectIdx = -1) {
-        this.setState({ onAdd: projectIdx });
+        this.setState({ addMode: projectIdx });
     }).bind(this);
 
     quitFromAddMode = (function() {
-        this.setState({ onAdd: null });
+        this.setState({ addMode: null });
     }).bind(this);
 
     createObject = (function(name, projectIdx = -1) {
@@ -123,7 +123,7 @@ class App extends Component {
         if (typeof(stringFilter) === "string") {
             newSearchFilter.name = stringFilter;
         } else {
-            newSearchFilter.activeOnly = !newSearchFilter.activeOnly
+            newSearchFilter.activeOnly = !newSearchFilter.activeOnly;
         }
         this.setState({ searchFilter: newSearchFilter });
     }).bind(this);
@@ -150,7 +150,8 @@ class App extends Component {
                         deleteObject={this.deleteObject}
                         />
                     <Adder
-                        onAdd={this.state.onAdd}
+                        projects={this.state.projects}
+                        addMode={this.state.addMode}
                         createObject={this.createObject}
                         quitFromAddMode={this.quitFromAddMode}
                         />

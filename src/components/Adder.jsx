@@ -11,19 +11,40 @@ class Adder extends Component {
     clickHandle = () => {
         let input = document.getElementById(this.inputId);
         let name = input.value;
+        let message, addMode = this.props.addMode;
         if (name.length === 0) {
-            passMistakeToInput(this.inputId, "У проекта должно быть название");
+            message =
+                (addMode + 1) ?
+                    "У вакансии должно быть название"
+                :
+                    "У проекта должно быть название";
         } else {
-            this.props.createObject(name, this.props.onAdd);
+            let condition = (_name) => { return _name.toUpperCase() === name.toUpperCase(); }
+            let objects = this.props.projects;
+
+            if (addMode + 1) objects = objects[addMode].vacancies;
+            if (objects.filter((obj) => { return condition(obj.name) }).length) {
+                message =
+                    (addMode + 1) ?
+                        "В этом проекте уже есть вакансия с таким названием"
+                    :
+                        "Проект с таким именем уже существует"
+            }
+        }
+
+        if (message) {
+            passMistakeToInput(this.inputId, message);
+        } else {
+            this.props.createObject(name, this.props.addMode);
         }
 
     }
 
     render() {
-        if (this.props.onAdd === null) return true;
+        if (this.props.addMode === null) return true;
 
         let head, inputPlaceholder;
-        if (this.props.onAdd + 1) {
+        if (this.props.addMode + 1) {
             head = "Новая вакансия";
             inputPlaceholder = "Название вакансии";
         } else {

@@ -6,7 +6,7 @@ import ProjectVacanciesHolder from './ProjectVacanciesHolder';
 class Project extends Component {
     render() {
         let openedVacanciesNumber = (
-            this.props.vacancies.filter((vac) => {return vac.isActive})
+            this.props.vacancies.filter((vac) => { return vac.isActive; })
         ).length
         return (
             <div className={"project" + (this.props.isOpened ? " opened" : "")}>
