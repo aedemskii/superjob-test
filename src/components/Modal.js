@@ -12,23 +12,25 @@ class Modal extends Component {
         return (
             <div className='dark-screen'>
                 <div className='modal'>
-                    <div className='cancel' onClick={this.props.quitFromModal}>
-                        <img src={closeNormal}  alt='' className='normal' />
-                        <img src={closeHovered} alt='' className='hovered' />
-                        <img src={closePressed} alt='' className='pressed' />
+                    <div className='modal-content'>
+                        <CreateProject
+                            projects={this.props.projects}
+                            addMode={this.props.addMode}
+                            createProject={this.props.createProject}
+                            quitFromModal={this.props.quitFromModal}
+                            />
+                        <CreateVacancy
+                            projects={this.props.projects}
+                            addMode={this.props.addMode}
+                            createVacancy={this.props.createVacancy}
+                            quitFromModal={this.props.quitFromModal}
+                            />
+                        <div className='cancel' onClick={this.props.quitFromModal}>
+                            <img src={closeNormal}  alt='' className='normal' />
+                            <img src={closeHovered} alt='' className='hovered' />
+                            <img src={closePressed} alt='' className='pressed' />
+                        </div>
                     </div>
-                    <CreateProject
-                        projects={this.props.projects}
-                        addMode={this.props.addMode}
-                        createProject={this.props.createProject}
-                        quitFromModal={this.props.quitFromModal}
-                        />
-                    <CreateVacancy
-                        projects={this.props.projects}
-                        addMode={this.props.addMode}
-                        createVacancy={this.props.createVacancy}
-                        quitFromModal={this.props.quitFromModal}
-                        />
                 </div>
             </div>
         );

@@ -1,56 +1,57 @@
 .dark-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.57);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .modal {
-      position: relative;
-      width: 552px;
-      background-color: #ffffff;
-      padding: 34px 24px 24px 24px;
-      border-radius: 3px;
-      box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.24), 0 0 24px 0 rgba(0, 0, 0, 0.12);
-      margin: auto;
-      $w_h: 14px;
-      @import './clickable_image';
-      @include clickable-image('cancel', $w_h);
-      .cancel {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          .normal {display: block};
-          .hovered, .pressed {display: none};
-          &:hover {
-              .hovered {display: block};
-              .normal, .pressed {display: none};
-          }
-          &:active {
-              .pressed {display: block};
-              .hovered, .normal {display: none};
-          }
-      }
-      .head {
-          position: relative;
-          font-size: 19px;
-          margin-bottom: 15px;
-      }
-      .create-form {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border-top: 1px solid rgba(0, 0, 0, 0.12);
-          padding-top: 20px;
-          @import './TextInput';
-          .text-input-holder input {
-              width: 440px;
-          }
-          @import './AppButton';
-      }
-
-  }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.57);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal {
+        width: 552px;
+        background-color: #ffffff;
+        border-radius: 3px;
+        box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.24), 0 0 24px 0 rgba(0, 0, 0, 0.12);
+        margin: auto;
+        .modal-content {
+            position: relative;
+            margin: 24px;
+            $w_h: 14px;
+            @import './clickable_image';
+            @include clickable-image('cancel', $w_h);
+            .cancel {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                .normal {display: block};
+                .hovered, .pressed {display: none};
+                &:hover {
+                    .hovered {display: block};
+                    .normal, .pressed {display: none};
+                }
+                &:active {
+                    .pressed {display: block};
+                    .hovered, .normal {display: none};
+                }
+            }
+            .head {
+                position: relative;
+                font-size: 19px;
+                margin-bottom: 15px;
+            }
+            .create-form {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top: 1px solid rgba(0, 0, 0, 0.12);
+                padding-top: 20px;
+                @import './TextInput';
+                .text-input-holder input {
+                    width: 440px;
+                }
+                @import './AppButton';
+            }
+        }
+    }
 }
