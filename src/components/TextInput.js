@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
+import inputRemoveWrong from './utils/inputRemoveWrong';
 
 class TextInput extends Component {
 
     inputOnMouseDown(e) {
-        const input = e.currentTarget;
-        const inputHolder = input.parentNode;
-        const mistake = inputHolder.getElementsByTagName('span')[0];
-        inputHolder.classList.remove('wrong');
-        mistake.innerHTML = '';
+        inputRemoveWrong(e.currentTarget);
     };
 
     onChange = (e) => {
         const input = e.currentTarget;
+        inputRemoveWrong(input);
         if (input.value === ' ') {
             input.value = '';
         } else {

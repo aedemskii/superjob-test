@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import projectsFilter from './utils/projectsFilter';
 import Project from './Project';
 
@@ -19,7 +20,7 @@ class ProjectsHolder extends Component {
                 if ( project === null ) return;
                 projectsBodies.push(
                     <Project
-                        key={"p_" + project.name + " " + idx}
+                        key={"p_" + project.name}
                         projectIdx={idx}
                         name={project.name}
                         isOpened={project.isOpened}
@@ -37,7 +38,13 @@ class ProjectsHolder extends Component {
         );
         return (
             <div className="projects-holder">
-                {projectsBodies}
+                <ReactCSSTransitionGroup
+                    transitionName="smooth"
+                    transitionEnter={false}
+                    transitionLeaveTimeout={800}
+                    >
+                    {projectsBodies}
+                </ReactCSSTransitionGroup>
             </div>
         );
     }

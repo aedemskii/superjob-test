@@ -36,7 +36,7 @@
         color: #f05c5c;
     }
     &.wrong {
-        input {
+        input[type='text'] {
             border-color: #f05c5c;
             &:hover {
                 border-color: #f05c5c;
