@@ -13,7 +13,7 @@ function _projects() {
                 }
             ],
             isActive: true,
-            isOpened: false
+            isOpened: true
         },
         {
             name: 'SuperJob Backend',
@@ -24,7 +24,7 @@ function _projects() {
                 }
             ],
             isActive: true,
-            isOpened: true
+            isOpened: false
         },
         {
             name: 'Machine learning',

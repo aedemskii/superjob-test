@@ -139,11 +139,28 @@ class App extends Component {
         this.setState({ searchFilter: newSearchFilter });
     };
 
+    fixUIPanel = () => {
+        const appBody = document.getElementById('app-body');
+        const UIPanel = document.getElementById("ui-panel");
+        if (!this.fixUIPanel.sticky) { this.fixUIPanel.sticky = UIPanel.offsetTop; }
+        if (appBody.scrollTop >= this.fixUIPanel.sticky) {
+            UIPanel.classList.add("sticky");
+        } else {
+            UIPanel.classList.remove("sticky");
+        }
+    };
+
 
     render() {
         this.save();
+        setTimeout(
+            () => {
+                const appBody = document.getElementById('app-body');
+                appBody.onscroll = () => {this.fixUIPanel()};
+            }, 0)
+
         return (
-            <div className="app-body">
+            <div id='app-body' className="app-body">
                 <div className="app-header"><span>Список проектов</span></div>
                 <div className="app-ui">
                     <UIPanel
