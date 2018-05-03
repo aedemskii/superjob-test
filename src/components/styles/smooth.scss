@@ -1,0 +1,21 @@
+@mixin smooth($max-height: 100px) {
+    &.smooth-enter {
+      opacity: 0.01;
+      max-height: 0;
+      &.smooth-enter-active {
+        max-height: $max-height;
+        opacity: 1;
+        transition: all 500ms ease-in;
+      }
+    }
+
+    &.smooth-leave {
+      max-height: $max-height;
+      opacity: 1;
+      &.smooth-leave-active {
+        max-height: 0;
+        opacity: 0.01;
+        transition: all 300ms ease-in;
+      }
+    }
+}

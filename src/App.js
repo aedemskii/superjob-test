@@ -82,6 +82,9 @@ class App extends Component {
     deleteVacancy = (projectIdx, vacancyIdx) => {
         const projects = this.state.projects.slice();
         projects[ projectIdx ].vacancies.splice(vacancyIdx, 1);
+        if (!projects[ projectIdx ].vacancies.length) {
+            projects[ projectIdx ].isOpened = false;
+        }
         this.setState({ projects: projects });
         this.save();
     };

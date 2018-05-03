@@ -1,4 +1,8 @@
+@import './smooth';
 .vacancy {
+    $max-height: 150px;
+    max-height: $max-height;
+    @include smooth($max-height);
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     padding: 10px 0;
     &:last-of-type { padding-bottom: 15px }
