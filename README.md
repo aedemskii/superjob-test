@@ -33,3 +33,19 @@
 в браузере.
 
 Можно использовать любой стэк технологий, плюсом будет использование React.
+
+---------------------------------------------------------------------------
+Review:
+1) Работу с local storage нужно изолировать в отдельном модуле.
+2) Прописывать PropTypes.
+3) ES6. this.setState({ projects: projects }); => this.setState({ projects }) (shorthand). Использовать деструктуризацию.
+4) setTimeout в рендер точно не место, можно вынести в компонент и хук.
+5) document.getElementById заменить на React.ref
+6) https://github.com/aedemskii/superjob-test/blob/master/src/components/CreateProject.js#L22 такие условия надо выносить в переменные.
+7) key === 13 = кодкей нужно выносить в константы
+8) https://github.com/aedemskii/superjob-test/blob/master/src/components/SearchForm.js два компонента на странице работать не будут из-за id.
+9) Избавиться от логики в jsx.
+10) Добавить Redux
+11) eslint конфиг от airbnb
+12) Изменить способ подключения SASS (в проекте сделан npm run eject, что делать не рекомендуется)
+
